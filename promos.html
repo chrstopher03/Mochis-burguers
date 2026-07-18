@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Promos - Burguer House</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TF5LKFXGJZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TF5LKFXGJZ');
+</script>
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#0b0b0b;
+color:white;
+padding-bottom:80px;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:18px 8%;
+background:rgba(20,20,20,.9);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#ff9800;
+}
+
+/* CART */
+.cart{
+position:fixed;
+top:20px;
+right:20px;
+background:#ff9800;
+color:black;
+padding:12px 15px;
+border-radius:50px;
+cursor:pointer;
+font-weight:800;
+z-index:999;
+}
+
+.panel{
+display:none;
+position:fixed;
+top:80px;
+right:20px;
+width:320px;
+background:#111;
+border:1px solid rgba(255,255,255,.08);
+padding:15px;
+border-radius:15px;
+z-index:999;
+}
+
+/* TITULO */
+.section-title{
+text-align:center;
+margin:40px 0 20px;
+font-size:32px;
+}
+
+.orange{color:#ff9800;}
+
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+padding:40px 8%;
+}
+
+.card{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+border-radius:18px;
+overflow:hidden;
+transition:.3s;
+position:relative;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+cursor:pointer;
+}
+
+.card-body{
+padding:12px;
+}
+
+.price{
+color:#ffb347;
+font-weight:700;
+margin:5px 0;
+}
+
+.old-price{
+text-decoration:line-through;
+color:#777;
+font-size:13px;
+}
+
+.discount{
+position:absolute;
+top:10px;
+left:10px;
+background:#ff9800;
+color:black;
+padding:5px 10px;
+border-radius:8px;
+font-weight:800;
+font-size:12px;
+}
+
+.card button{
+width:100%;
+padding:10px;
+border:none;
+border-radius:10px;
+background:#ff9800;
+font-weight:700;
+cursor:pointer;
+}
+
+/* BOTTOM NAV */
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+height:70px;
+background:#111;
+display:flex;
+justify-content:space-around;
+align-items:center;
+border-top:1px solid rgba(255,255,255,.08);
+z-index:999;
+}
+
+.nav-item{
+background:none;
+border:none;
+color:#aaa;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:4px;
+font-size:12px;
+cursor:pointer;
+}
+
+.nav-item i{
+font-size:18px;
+}
+
+.nav-item:hover,
+.nav-item.active{
+color:#ff9800;
+}
+
+.cart-badge{
+position:absolute;
+top:-6px;
+right:-10px;
+background:#ff9800;
+color:black;
+font-size:10px;
+padding:2px 6px;
+border-radius:50px;
+font-weight:700;
+}
+
+.icon-wrapper{
+position:relative;
+display:flex;
+justify-content:center;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.cards{
+grid-template-columns:1fr;
+padding:20px;
+}
+}
+
+/* LIGHTBOX */
+#lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.85);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:99999;
+}
+
+#lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:15px;
+box-shadow:0 20px 60px rgba(0,0,0,.6);
+transform:scale(.9);
+animation:zoom .2s ease forwards;
+}
+
+@keyframes zoom{
+to{transform:scale(1);}
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:18px 8%;
+background:rgba(20,20,20,.9);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,.05);
+text-align:center;
+}
+.logo{
+font-size:28px;
+font-weight:800;
+color:#ff9800;
+}
+
+nav{
+display:flex;
+gap:30px;
+}
+
+nav a{
+color:#bbb;
+text-decoration:none;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:#ff9800;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="cerrarLightbox()">
+<img id="lightboxImg">
+</div>
+
+<header>
+<div class="logo">🍔 Burguer House</div>
+</header>
+
+<div class="cart" onclick="toggleCart()">
+🛒 <span id="count">0</span>
+</div>
+
+<div class="panel" id="panel">
+<h3>Mi Pedido</h3>
+<div id="pedido"></div>
+<h3>Total: $<span id="total">0</span></h3>
+<button onclick="confirmar()">Confirmar</button>
+</div>
+
+<h2 class="section-title">🔥 <span class="orange">Promociones</span></h2>
+
+<div class="cards" id="cards"></div>
+
+<!-- NAV -->
+<nav class="bottom-nav">
+
+<button class="nav-item" onclick="location.href='index.html'">
+<i class="fa-solid fa-house"></i>
+<span>Inicio</span>
+</button>
+
+<button class="nav-item" onclick="location.href='menu.html'">
+<i class="fa-solid fa-burger"></i>
+<span>Menú</span>
+</button>
+
+<button class="nav-item" onclick="location.href='pedidos.html'">
+<div class="icon-wrapper">
+<i class="fa-solid fa-box"></i>
+<span class="cart-badge" id="cartCount">0</span>
+</div>
+<span>Pedidos</span>
+</button>
+
+<button class="nav-item active" onclick="location.href='promos.html'">
+<i class="fa-solid fa-tags"></i>
+<span>Promos</span>
+</button>
+
+</nav>
+
+<script>
+
+/* PROMOS */
+const promos = [
+{nombre:"El Híbrido",precio:180,img:"8.jpeg"},
+{nombre:"Tio Primo",precio:380,img:"21.jpeg"},
+{nombre:"Love and Thunder",precio:270,img:"22.jpeg"},
+{nombre:"Combo House",precio:300,img:"24.jpeg"},
+{nombre:"Combo Familiar",precio:500,img:"25.jpeg"},
+{nombre:"Combo Shark",precio:250,img:"37.jpeg"},
+{nombre:"Combo X4",precio:480,img:"38.jpeg"},
+{nombre:"Combo Dude Perfect",precio:200,img:"40.jpeg"}
+];
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+function render(){
+let html="";
+promos.forEach((p,i)=>{
+html+=`
+<div class="card">
+<img src="${p.img}" onclick="verImagen('${p.img}')">
+<div class="card-body">
+<h3>${p.nombre}</h3>
+<div class="price">C$${p.precio}</div>
+<button onclick="agregar(${i})">Agregar</button>
+</div>
+</div>`;
+});
+
+document.getElementById("cards").innerHTML=html;
+updateCount();
+}
+
+/* LIGHTBOX */
+function verImagen(img){
+document.getElementById("lightboxImg").src = img;
+document.getElementById("lightbox").style.display = "flex";
+}
+
+function cerrarLightbox(){
+document.getElementById("lightbox").style.display = "none";
+}
+
+/* AGREGAR */
+function agregar(i){
+
+let producto = promos[i];
+
+carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+let index = carrito.findIndex(p => p.nombre === producto.nombre);
+
+if(index !== -1){
+carrito[index].qty += 1;
+}else{
+carrito.push({
+nombre: producto.nombre,
+precio: producto.precio,
+img: producto.img,
+qty: 1
+});
+}
+
+localStorage.setItem("carrito", JSON.stringify(carrito));
+
+updateCount();
+toast("✔ Promo agregada");
+}
+
+/* CONTADOR */
+function updateCount(){
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let total = 0;
+
+carrito.forEach(p=> total += p.qty || 1);
+
+document.getElementById("count").innerText = total;
+
+let nav = document.getElementById("cartCount");
+if(nav) nav.innerText = total;
+}
+
+/* TOAST */
+function toast(msg){
+let t=document.createElement("div");
+t.innerText=msg;
+
+t.style.position="fixed";
+t.style.bottom="20px";
+t.style.right="20px";
+t.style.background="#ff9800";
+t.style.color="#000";
+t.style.padding="10px 14px";
+t.style.borderRadius="10px";
+t.style.fontWeight="bold";
+t.style.zIndex="9999";
+
+document.body.appendChild(t);
+setTimeout(()=>t.remove(),1500);
+}
+
+/* CART */
+function toggleCart(){
+let p=document.getElementById("panel");
+p.style.display = p.style.display==="block" ? "none":"block";
+}
+
+function confirmar(){
+alert("Pedido confirmado 🍔🔥");
+carrito=[];
+localStorage.removeItem("carrito");
+updateCount();
+}
+
+render();
+updateCount();
+
+</script>
+
+</body>
+</html>

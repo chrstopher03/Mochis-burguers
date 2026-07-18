@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>QR HD con Logo</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0b0b0b,#1a1a1a);
+    font-family:Arial;
+}
+
+.container{
+    text-align:center;
+    padding:25px;
+    background:#111;
+    border-radius:20px;
+    box-shadow:0 15px 50px rgba(0,0,0,.6);
+}
+
+h3{
+    color:white;
+    margin-bottom:15px;
+}
+
+.qr-box{
+    position:relative;
+    display:inline-block;
+    padding:20px;
+    background:white;
+    border-radius:18px;
+}
+
+#qrcode{
+    width:300px;
+    height:300px;
+}
+
+.logo-wrap{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:90px;
+    height:90px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+.logo-wrap img{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+button{
+    margin-top:15px;
+    padding:10px 15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#ffb300;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#ffa000;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h3>Escanea para entrar a Burger House</h3>
+
+    <div id="capture" class="qr-box">
+        <div id="qrcode"></div>
+
+        <div class="logo-wrap">
+            <img id="logo" src="logo.jpeg">
+        </div>
+    </div>
+
+    <button onclick="downloadHD()">⬇ Descargar QR HD</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+const url = "https://burger-house-df.netlify.app/";
+
+/* QR */
+new QRCode(document.getElementById("qrcode"), {
+    text: url,
+    width: 300,
+    height: 300,
+    colorDark: "#000",
+    colorLight: "#fff",
+    correctLevel: QRCode.CorrectLevel.H
+});
+
+/* 🔥 DESCARGA HD REAL */
+function downloadHD(){
+    const element = document.getElementById("capture");
+
+    html2canvas(element, {
+        scale: 4,   // 🔥 CALIDAD ULTRA HD
+        useCORS: true,
+        backgroundColor: "#ffffff"
+    }).then(canvas => {
+        const img = canvas.toDataURL("image/png");
+
+        const link = document.createElement("a");
+        link.href = img;
+        link.download = "qr-burger-house-HD.png";
+        link.click();
+    });
+}
+</script>
+
+</body>
+</html>
