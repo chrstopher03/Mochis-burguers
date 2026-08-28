@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -77,57 +78,102 @@ button:hover{
     background:#ffa000;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
-    <h3>Escanea para entrar a Burger House</h3>
 
-    <div id="capture" class="qr-box">
-        <div id="qrcode"></div>
+```
+<h3>
+    Escanea para entrar a Mochi Burguers
+</h3>
 
-        <div class="logo-wrap">
-            <img id="logo" src="logo.jpeg">
-        </div>
+<div id="capture" class="qr-box">
+
+    <div id="qrcode"></div>
+
+    <div class="logo-wrap">
+
+        <img
+            id="logo"
+            src="logo.jpeg">
+
     </div>
 
-    <button onclick="downloadHD()">⬇ Descargar QR HD</button>
+</div>
+
+<button onclick="downloadHD()">
+    ⬇ Descargar QR HD
+</button>
+```
+
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <script>
-const url = "https://mochi-burguers.netlify.app/";
+
+const url =
+"https://mochi-burguers.netlify.app/";
+
 
 /* QR */
-new QRCode(document.getElementById("qrcode"), {
-    text: url,
-    width: 300,
-    height: 300,
-    colorDark: "#000",
-    colorLight: "#fff",
-    correctLevel: QRCode.CorrectLevel.H
-});
+
+new QRCode(
+    document.getElementById("qrcode"),
+    {
+        text: url,
+        width: 300,
+        height: 300,
+        colorDark: "#000",
+        colorLight: "#fff",
+        correctLevel: QRCode.CorrectLevel.H
+    }
+);
+
 
 /* 🔥 DESCARGA HD REAL */
+
 function downloadHD(){
-    const element = document.getElementById("capture");
+
+    const element =
+    document.getElementById("capture");
 
     html2canvas(element, {
-        scale: 4,   // 🔥 CALIDAD ULTRA HD
-        useCORS: true,
-        backgroundColor: "#ffffff"
-    }).then(canvas => {
-        const img = canvas.toDataURL("image/png");
 
-        const link = document.createElement("a");
+        scale: 4,
+
+        useCORS: true,
+
+        backgroundColor: "#ffffff"
+
+    }).then(canvas => {
+
+        const img =
+        canvas.toDataURL("image/png");
+
+        const link =
+        document.createElement("a");
+
         link.href = img;
-        link.download = "qr-burger-house-HD.png";
+
+        link.download =
+        "qr-mochi-burguers-HD.png";
+
+        document.body.appendChild(link);
+
         link.click();
+
+        document.body.removeChild(link);
+
     });
+
 }
+
 </script>
 
 </body>
