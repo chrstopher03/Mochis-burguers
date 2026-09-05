@@ -22,8 +22,7 @@
 <link rel="manifest" href="manifest.json">
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -78,8 +77,12 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#fffdfd;
-color:white;
+    background-image: url("100.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
 }
 
 /* HEADER */
@@ -132,32 +135,250 @@ transition:.3s;
 .btn:hover{
 transform:scale(1.05);
 }
+/* =========================
+   HERO - ESTILO BRUTAL 🔥
+========================= */
 
-/* HERO */
 .hero{
-display:grid;
-grid-template-columns:1.2fr 1fr;
-align-items:center;
-gap:50px;
-padding:80px 8%;
+    min-height:650px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:80px 8%;
+    overflow:hidden;
+
+    
+
+    background-size:cover;
+    background-position:center;
 }
+
+/* Contenido */
+
+.hero > div{
+    position:relative;
+    z-index:2;
+    max-width:850px;
+}
+@media(max-width:768px){
+
+    .hero{
+        min-height:650px;
+
+        padding:70px 20px 120px;
+
+        text-align:center;
+
+        justify-content:center;
+
+        background-position:center;
+    }
+
+    .hero > div{
+        width:100%;
+    }
+
+    .hero h1{
+        font-size:clamp(65px,18vw,100px);
+
+        line-height:.85;
+
+        letter-spacing:1px;
+    }
+
+    .hero h1 .orange::after{
+        width:80%;
+        margin:12px auto 0;
+    }
+
+    .hero p{
+        font-size:16px;
+        margin:30px auto 0;
+    }
+
+    .hero .btn{
+        margin-top:25px;
+    }
+
+    .hero img{
+        width:75%;
+
+        max-height:300px;
+
+        right:50%;
+        transform:translateX(50%);
+
+        opacity:.28;
+
+        z-index:0;
+    }
+
+    .hero img:hover{
+        transform:translateX(50%);
+    }
+}
+
+
+/* TÍTULO */
 
 .hero h1{
-font-size:72px;
-line-height:1.05;
+    font-family:'Bangers', cursive;
+    font-size:clamp(70px, 9vw, 145px);
+    line-height:.82;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    color:#fff;
+
+    text-shadow:
+        5px 5px 0 rgba(0,0,0,.5),
+        0 0 25px rgba(0,0,0,.6);
+
+    transform:rotate(-2deg);
 }
 
-.orange{color:#ff6b00}
+/* MÁS BRUTAL */
+
+.hero h1 .orange{
+    display:block;
+
+    color:#ff6b00;
+
+    font-family:'Bangers', cursive;
+
+    font-size:1.08em;
+
+    text-shadow:
+        4px 4px 0 #000,
+        0 0 20px rgba(255,107,0,.3);
+
+    position:relative;
+}
+
+/* Línea naranja debajo */
+
+.hero h1 .orange::after{
+    content:"";
+
+    display:block;
+
+    width:75%;
+    height:15px;
+
+    margin-top:15px;
+
+    background:#ff6b00;
+
+    border-radius:50%;
+
+    transform:rotate(-3deg) skewX(-20deg);
+
+    box-shadow:
+        0 0 10px rgba(255,107,0,.3);
+}
+
+/* SUBTÍTULO */
 
 .hero p{
-margin:20px 0;
-color:#aaa;
-max-width:500px;
+    margin-top:35px;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:clamp(16px,2vw,24px);
+
+    color:#fff;
+
+    max-width:650px;
+
+    letter-spacing:.5px;
 }
 
-.hero img{
-width:100%;
-border-radius:25px;
+/* BOTÓN */
+
+.hero .btn{
+    margin-top:25px;
+
+    background:#ff6b00;
+    color:#fff;
+
+    padding:15px 30px;
+
+    border-radius:5px;
+
+    font-size:16px;
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    box-shadow:
+        0 8px 25px rgba(255,107,0,.3);
+}
+
+/* Imagen derecha */
+@media(max-width:768px){
+
+    .hero{
+        min-height:auto;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        padding:60px 20px 100px;
+        text-align:center;
+    }
+
+    .hero > div{
+        width:100%;
+        position:relative;
+        z-index:2;
+    }
+
+    .hero h1{
+        font-size:clamp(60px,18vw,95px);
+        line-height:.85;
+    }
+
+    .hero p{
+        margin-top:25px;
+        font-size:15px;
+    }
+
+    .hero .btn{
+        margin-top:25px;
+    }
+
+    /* 🍔 101.jpeg DEBAJO DEL TEXTO */
+    .hero img{
+        position:relative;
+        right:auto;
+        bottom:auto;
+
+        width:85%;
+        max-width:380px;
+        height:auto;
+
+        margin-top:35px;
+
+        transform:none;
+
+        opacity:1;
+
+        z-index:2;
+
+        object-fit:contain;
+
+        border-radius:15px;
+
+        filter:drop-shadow(0 15px 25px rgba(0,0,0,.7));
+    }
+
+    .hero img:hover{
+        transform:scale(1.02);
+    }
+}
+
+.hero img:hover{
+    transform:scale(1.03) rotate(1deg);
 }
 
 /* ABOUT */
@@ -177,7 +398,7 @@ margin-bottom:15px;
 .about p{
 max-width:800px;
 margin:auto;
-color:#636363;
+color:rgba(241, 241, 241, 0.9);
 line-height:1.6;
 }
 
@@ -285,7 +506,7 @@ bottom:0;
 left:0;
 right:0;
 height:70px;
-background:#ffffff;
+background:#000;
 display:flex;
 justify-content:space-around;
 align-items:center;
@@ -335,7 +556,7 @@ font-weight:700;
 }
 /* FOOTER */
 .footer{
-background:#fcf8f8;
+background:rgba(255,255,255,.04);
 border-top:1px solid rgba(255,255,255,.08);
 padding:40px 20px 50px;
 text-align:center;
@@ -396,7 +617,7 @@ padding:40px 20px;
 }
 
 .hero h1{
-font-size:40px;
+font-size:70px;
 }
 
 .cards{
@@ -423,10 +644,14 @@ right:5%;
 .menu{
 padding:60px 8% 120px; /* 👈 espacio abajo para el bottom nav */
 }
+
 body{
-background:#ffffff;
-color:rgb(17, 17, 17);
-padding-bottom:80px; /* 👈 evita que el bottom-nav tape contenido */
+    background-image: url("100.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
 }
 
 
@@ -436,7 +661,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 padding:18px 8%;
-background:rgba(245, 244, 244, 0.9);
+background:#1d1d1d;
 backdrop-filter:blur(10px);
 position:sticky;
 top:0;
@@ -614,7 +839,7 @@ Cargando horario...
 Ordenar ahora
 </button></div>
 
-<img src="43.jpeg">
+<img src="101.png">
 </section>
 <button id="installBtn" onclick="installApp()" class="install-btn">
   📲 Instalar App

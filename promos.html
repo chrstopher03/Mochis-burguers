@@ -27,9 +27,15 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#ffffff;
-color:rgb(19, 19, 19);
-padding-bottom:80px;
+    background-image:url("100.jpeg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    color:white;
+
+    /* Espacio reservado para el nav */
+    padding-bottom:90px;
 }
 
 /* HEADER */
@@ -156,19 +162,33 @@ cursor:pointer;
 
 /* BOTTOM NAV */
 .bottom-nav{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-height:70px;
-background:#ffffff;
-display:flex;
-justify-content:space-around;
-align-items:center;
-border-top:1px solid rgba(255,255,255,.08);
-z-index:999;
-}
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
 
+    height:70px;
+
+    background:#000;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    z-index:9999;
+}
+@media(max-width:768px){
+
+    body{
+        padding-bottom:90px;
+    }
+
+    .bottom-nav{
+        height:70px;
+        padding-bottom:env(safe-area-inset-bottom);
+    }
+}
 .nav-item{
 background:none;
 border:none;
@@ -249,7 +269,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 padding:18px 8%;
-background:rgba(255, 255, 255, 0.9);
+background:rgba(0, 0, 0, .6);
 backdrop-filter:blur(10px);
 position:sticky;
 top:0;
@@ -340,14 +360,8 @@ color:#ff9800;
 
 /* PROMOS */
 const promos = [
-{nombre:"El Híbrido",precio:180,img:".jpeg"},
-{nombre:"Tio Primo",precio:380,img:".jpeg"},
-{nombre:"Love and Thunder",precio:270,img:".jpeg"},
-{nombre:"Combo House",precio:300,img:".jpeg"},
-{nombre:"Combo Familiar",precio:500,img:".jpeg"},
-{nombre:"Combo Shark",precio:250,img:".jpeg"},
-{nombre:"Combo X4",precio:480,img:".jpeg"},
-{nombre:"Combo Dude Perfect",precio:200,img:".jpeg"}
+{nombre:"",precio:180,img:".jpeg"},
+
 ];
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];

@@ -26,12 +26,15 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
-body{
-background:#ffffff;
-color:rgb(10, 10, 10);
-padding-bottom:90px;
-}
 
+body{
+    background-image: url("100.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
 /* HEADER */
 header{
 display:flex;
@@ -203,14 +206,29 @@ bottom:0;
 left:0;
 right:0;
 height:70px;
-background:#ffffff;
+background:#000000;
 display:flex;
 justify-content:space-around;
 align-items:center;
 border-top:1px solid rgba(255,255,255,.08);
 z-index:999;
 }
+/* ESPACIO PARA QUE EL NAV NO TAPE EL CONTENIDO */
+body{
+    padding-bottom: 85px;
+}
 
+.bottom-nav{
+    height:70px;
+    bottom:0;
+}
+
+/* En móviles dejamos un poco más de espacio */
+@media(max-width:768px){
+    body{
+        padding-bottom:85px;
+    }
+}
 .nav-item{
 background:none;
 border:none;
@@ -265,7 +283,7 @@ border-radius:12px;
 position:relative;
 width:100%;
 height:220px;
-background:#ffffff;
+background:rgba(255, 255, 255, .08);
 display:flex;
 align-items:center;
 justify-content:center;
@@ -315,7 +333,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 padding:18px 8%;
-background:rgba(255, 253, 253, 0.9);
+background:rgba(255, 255, 255, .08);
 backdrop-filter:blur(10px);
 position:sticky;
 top:0;
@@ -358,7 +376,7 @@ color:#ff9800;
 🛒 <span id="count">0</span>
 </div>
 <div class="hero-title">
-  <img src="43.jpeg" alt="Menú Burger House">
+  <img src="101.png" alt="Menú Burger House">
 
   <div class="hero-text">
     <h1>Nuestro <span>Menú</span></h1>
@@ -402,7 +420,7 @@ color:#ff9800;
 <span>Menú</span>
 </button>
 
-<button class="nav-item" onclick="location.href='pedidos.htm'">
+<button class="nav-item" onclick="location.href='pedidos.html'">
 <div class="icon-wrapper">
 <i class="fa-solid fa-box"></i>
 <span class="cart-badge" id="cartCount">0</span>
