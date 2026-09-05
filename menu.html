@@ -391,14 +391,6 @@ color:#ff9800;
 <div id="lightbox" class="lightbox" onclick="cerrarLightbox()">
   <img id="lightboxImg" src="">
 </div>
-<!-- ================= MENÚ DE BANDEJAS ================= -->
-<section class="menu">
-  <div class="title">
-    <h1>Menú de <span>Bandejas</span></h1>
-  </div>
-
-  <div class="cards" id="bandejas"></div>
-</section>
 
 <!-- ================= MENÚ DE BEBIDAS ================= -->
 <section class="menu">
@@ -436,7 +428,7 @@ color:#ff9800;
 </nav><script>const productos = [
 
 {
-nombre:"Doner",
+nombre:"Hamburguesa tradicional",
 precio:150,
 desc:"Doners (pan pita, lechuga, tomate, salsas de la casa, Pollo o Res acompañado de papas fritas)",
 img:"4.jpeg",
@@ -446,7 +438,7 @@ extras:[
 ]
 },
 {
-nombre:"Alitas",
+nombre:"La suprema",
 precio:200,
 desc:"Descripcion: Alitas (BBQ, Búfalo, mango habanero, ranch todas acompañadas con papas fritas)",
 img:"5.jpeg",
@@ -457,7 +449,7 @@ extras:[
 ]
 },
 {
-nombre:"Sandwich de Pescado",
+nombre:"Big mochi burguers",
 precio:300,
 desc:"Sándwich de pescado ( filete de pescado, ensalada de cole, salsa casera papas fritas)",
 img:"6.jpeg",
@@ -469,7 +461,7 @@ extras:[
 
 
 {
-nombre:"Sandwich de Pollo",
+nombre:"Hot chicken",
 precio:100,
 desc:"Sándwich de pollo hot (filete de pollo empanizado reahogado en salsa picante de la casa, pepinillo, aderezo casero, papas fritas)",
 img:"7.jpeg",
@@ -480,16 +472,50 @@ extras:[
 },
 
 
+{
+nombre:"Chicken BBQ",
+precio:100,
+desc:"Sándwich de pollo hot (filete de pollo empanizado reahogado en salsa picante de la casa, pepinillo, aderezo casero, papas fritas)",
+img:"7.jpeg",
+extras:[
+{nombre:"Papas",precio:35},
+{nombre:"Gaseosa",precio:25}
+]
+},
+
+
+{
+nombre:"Pan con carne (Baguete)",
+precio:100,
+desc:"Sándwich de pollo hot (filete de pollo empanizado reahogado en salsa picante de la casa, pepinillo, aderezo casero, papas fritas)",
+img:"7.jpeg",
+extras:[
+{nombre:"Papas",precio:35},
+{nombre:"Gaseosa",precio:25}
+]
+},
+ 
+
+{
+nombre:"Pizza doner",
+precio:100,
+desc:"Sándwich de pollo hot (filete de pollo empanizado reahogado en salsa picante de la casa, pepinillo, aderezo casero, papas fritas)",
+img:"7.jpeg",
+extras:[
+{nombre:"Papas",precio:35},
+{nombre:"Gaseosa",precio:25}
+]
+},
 ];
 
-/* ================= BANDEJAS ================= */
-const bandejas = [
-{nombre:"Bandeja Expres",precio:550,desc:"Incluye Bebidas",img:"17.jpe"},
-];
 
 /* ================= BEBIDAS ================= */
 const bebidas = [
-{nombre:"Coca-Cola de la pequeña",precio:25,desc:"Coca-Cola",img:"34.jpeg"},
+{nombre:"Te frio",precio:25,desc:"Te frio",img:"34.jpeg"},
+{nombre:"Jugo de naranja",precio:25,desc:"Jugo de naranja",img:"34.jpe"},
+{nombre:"Coca cola",precio:25,desc:"Coca Cola",img:"34.jpe"},
+{nombre:"Agua",precio:25,desc:"Agua",img:"34.jpe"},
+
 ];
 
 /* ================= CARRITO ================= */
@@ -766,7 +792,6 @@ document.getElementById("lightboxImg").src="";
 
 /* ================= INIT ================= */
 render();
-renderBandejas();
 renderBebidas();
 update();
 </script>
