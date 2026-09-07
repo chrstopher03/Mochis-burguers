@@ -866,7 +866,7 @@ En Mochi Burgers creemos que una gran hamburguesa no solo alimenta, crea momento
 <span>Menú</span>
 </button>
 
-<button class="nav-item" onclick="location.href='pedidos.htm'">
+<button class="nav-item" onclick="location.href='pedidos.html'">
 <div class="icon-wrapper">
 <i class="fa-solid fa-box"></i>
 <span class="cart-badge" id="cartCount">0</span>
@@ -874,7 +874,7 @@ En Mochi Burgers creemos que una gran hamburguesa no solo alimenta, crea momento
 <span>Pedidos</span>
 </button>
 
-<button class="nav-item" onclick="location.href='promos.htm'">
+<button class="nav-item" onclick="location.href='promos.html'">
 <i class="fa-solid fa-tags"></i>
 <span>Promos</span>
 </button>
@@ -891,7 +891,7 @@ En Mochi Burgers creemos que una gran hamburguesa no solo alimenta, crea momento
             <i class="fab fa-facebook-f"></i>
         </a>
 
-        <a href="https://www.instagram.com/TU_USUARIO"
+        <a href="https://www.instagram.com/m0ch1s_26?stkn=MTZoOWY1Nm5iaHd5Mg=="
            target="_blank">
             <i class="fab fa-instagram"></i>
         </a>
@@ -1054,7 +1054,7 @@ function actualizarHorario() {
   if (abierto) {
 
     estado.className = "estado-local abierto";
-    estado.innerHTML = "🟢 Abierto ahora · Jueves a Domingo | 5:00 PM - 10:30 PM";
+    estado.innerHTML = "🟢 Abierto ahora · Viernes a Domingo | 5:00 PM - 10:30 PM";
 
     if (btnComprar) {
       btnComprar.disabled = false;
@@ -1066,7 +1066,7 @@ function actualizarHorario() {
     estado.className = "estado-local cerrado";
 
     if (!diaAbierto) {
-      estado.innerHTML = "🔴 Cerrado · Abrimos de Jueves a Domingo";
+      estado.innerHTML = "🔴 Cerrado · Abrimos de Viernes a Domingo";
     } else {
       estado.innerHTML = "🔴 Cerrado · Horario de 5:00 PM a 10:30 PM";
     }
