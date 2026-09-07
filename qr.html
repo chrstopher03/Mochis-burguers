@@ -3,79 +3,54 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>QR HD con Logo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QR Mochi Burguers</title>
 
 <style>
-body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0b0b0b,#1a1a1a);
-    font-family:Arial;
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+    font-family: Arial, sans-serif;
 }
 
-.container{
-    text-align:center;
-    padding:25px;
-    background:#111;
-    border-radius:20px;
-    box-shadow:0 15px 50px rgba(0,0,0,.6);
+.container {
+    text-align: center;
+    padding: 25px;
+    background: #111;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,.6);
 }
 
-h3{
-    color:white;
-    margin-bottom:15px;
+h3 {
+    color: white;
 }
 
-.qr-box{
-    position:relative;
-    display:inline-block;
-    padding:20px;
-    background:white;
-    border-radius:18px;
+#qrCanvas {
+    width: 340px;
+    height: 340px;
+    background: white;
+    border-radius: 18px;
 }
 
-#qrcode{
-    width:300px;
-    height:300px;
+button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #ffb300;
+    color: #111;
+    font-weight: bold;
+    font-size: 15px;
 }
 
-.logo-wrap{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:90px;
-    height:90px;
-    background:white;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
-}
-
-.logo-wrap img{
-    width:70px;
-    height:70px;
-    object-fit:cover;
-    border-radius:12px;
-}
-
-button{
-    margin-top:15px;
-    padding:10px 15px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    background:#ffb300;
-    font-weight:bold;
-}
-
-button:hover{
-    background:#ffa000;
+button:hover {
+    background: #ffa000;
 }
 </style>
 
@@ -86,25 +61,13 @@ button:hover{
 <div class="container">
 
 ```
-<h3>
-    Escanea para entrar a Mochi Burguers
-</h3>
+<h3>Escanea para entrar a Mochi Burguers</h3>
 
-<div id="capture" class="qr-box">
+<canvas id="qrCanvas" width="1360" height="1360"></canvas>
 
-    <div id="qrcode"></div>
+<br>
 
-    <div class="logo-wrap">
-
-        <img
-            id="logo"
-            src="logo.jpeg">
-
-    </div>
-
-</div>
-
-<button onclick="downloadHD()">
+<button onclick="downloadQR()">
     ⬇ Descargar QR HD
 </button>
 ```
@@ -113,65 +76,112 @@ button:hover{
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
 <script>
 
-const url =
-"https://mochi-burguers.netlify.app/";
+const url = "https://mochi-burguers.netlify.app/";
 
+const qrSize = 1200;
 
-/* QR */
+const tempDiv = document.createElement("div");
 
-new QRCode(
-    document.getElementById("qrcode"),
-    {
-        text: url,
-        width: 300,
-        height: 300,
-        colorDark: "#000",
-        colorLight: "#fff",
-        correctLevel: QRCode.CorrectLevel.H
+new QRCode(tempDiv, {
+    text: url,
+    width: qrSize,
+    height: qrSize,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+});
+
+setTimeout(() => {
+
+    const qrImage = tempDiv.querySelector("img");
+
+    if (!qrImage) {
+        alert("No se pudo crear el QR.");
+        return;
     }
-);
+
+    const canvas = document.getElementById("qrCanvas");
+    const ctx = canvas.getContext("2d");
+
+    /* Fondo */
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    /* QR */
+    ctx.drawImage(qrImage, 80, 80, qrSize, qrSize);
+
+    /* Logo */
+    const logo = new Image();
+
+    logo.onload = function() {
+
+        const logoSize = 300;
+
+        const x = (canvas.width - logoSize) / 2;
+        const y = (canvas.height - logoSize) / 2;
+
+        /* Fondo blanco circular */
+        ctx.beginPath();
+        ctx.arc(
+            canvas.width / 2,
+            canvas.height / 2,
+            logoSize / 2 + 20,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+
+        /* Logo */
+        ctx.save();
+
+        ctx.beginPath();
+        ctx.arc(
+            canvas.width / 2,
+            canvas.height / 2,
+            logoSize / 2,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.clip();
+
+        ctx.drawImage(
+            logo,
+            x,
+            y,
+            logoSize,
+            logoSize
+        );
+
+        ctx.restore();
+
+    };
+
+    logo.onerror = function() {
+        alert("No se encontró logo.jpeg. Revisa el nombre exacto del archivo.");
+    };
+
+    logo.src = "logo.jpeg";
+
+}, 500);
 
 
-/* 🔥 DESCARGA HD REAL */
+/* DESCARGAR */
+function downloadQR() {
 
-function downloadHD(){
+    const canvas = document.getElementById("qrCanvas");
 
-    const element =
-    document.getElementById("capture");
+    const link = document.createElement("a");
 
-    html2canvas(element, {
+    link.download = "QR-Mochi-Burguers-HD.png";
 
-        scale: 4,
+    link.href = canvas.toDataURL("image/png");
 
-        useCORS: true,
-
-        backgroundColor: "#ffffff"
-
-    }).then(canvas => {
-
-        const img =
-        canvas.toDataURL("image/png");
-
-        const link =
-        document.createElement("a");
-
-        link.href = img;
-
-        link.download =
-        "qr-mochi-burguers-HD.png";
-
-        document.body.appendChild(link);
-
-        link.click();
-
-        document.body.removeChild(link);
-
-    });
-
+    link.click();
 }
 
 </script>
