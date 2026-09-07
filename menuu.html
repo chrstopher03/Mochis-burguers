@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mochi Burgers</title>
+<title>Mochis Burgers</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Eater&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Eater&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Eater&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -23,378 +23,1052 @@
     --line:rgba(255,183,3,.22);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-html{scroll-behavior:smooth}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:#080809;
     color:white;
     overflow-x:hidden;
 }
 
-/* ===== PORTADA ===== */
+
+/* =====================================================
+   PORTADA
+===================================================== */
+
 .hero{
     width:100%;
     min-height:100vh;
     position:relative;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
     padding:30px 20px;
+
     overflow:hidden;
+
     background:
-      linear-gradient(135deg,rgba(0,0,0,.88),rgba(0,0,0,.42)),
-      url('100.jpeg') center/cover no-repeat;
+        linear-gradient(
+            135deg,
+            rgba(0,0,0,.88),
+            rgba(0,0,0,.42)
+        ),
+        url('100.jpeg') center/cover no-repeat;
 }
+
 .hero::before{
     content:"";
+
     position:absolute;
     inset:0;
+
     background:
-      radial-gradient(circle at 50% 45%,rgba(255,120,0,.16),transparent 32%),
-      linear-gradient(to top,rgba(0,0,0,.9),transparent 45%);
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,120,0,.16),
+            transparent 32%
+        ),
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.9),
+            transparent 45%
+        );
 }
+
 .hero-content{
     position:relative;
     z-index:2;
+
     max-width:900px;
+
     animation:heroIn .9s ease both;
 }
+
 @keyframes heroIn{
-    from{opacity:0;transform:translateY(25px) scale(.97)}
-    to{opacity:1;transform:none}
+
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+
 }
+
+
+/* =====================================================
+   LOGO PORTADA
+===================================================== */
+
 .hero-content h1{
     line-height:.82;
+
     text-transform:uppercase;
+
     transform:rotate(-2deg);
-    filter:drop-shadow(0 14px 22px rgba(0,0,0,.55));
+
+    filter:
+        drop-shadow(
+            0 14px 22px rgba(0,0,0,.55)
+        );
+
     margin-bottom:25px;
 }
+
 .hero-content h1 .brand-white{
     display:block;
+
     color:#fff;
+
     font-family:'Permanent Marker',cursive;
-    font-size:clamp(58px,10vw,112px);
+
+    font-size:
+        clamp(
+            58px,
+            10vw,
+            112px
+        );
+
     letter-spacing:2px;
 }
+
 .hero-content h1 .brand-orange{
     display:block;
+
     color:var(--orange);
+
     font-family:'Eater',cursive;
-    font-size:clamp(74px,13vw,150px);
+
+    font-size:
+        clamp(
+            74px,
+            13vw,
+            150px
+        );
+
     margin-top:-5px;
-    text-shadow:4px 6px 0 #8f3500,0 0 28px rgba(255,120,0,.2);
+
+    text-shadow:
+        4px 6px 0 #8f3500,
+        0 0 28px rgba(255,120,0,.2);
+
     letter-spacing:3px;
+
     position:relative;
 }
+
 .hero-content h1 .brand-orange::after{
     content:"";
+
     display:block;
+
     width:72%;
+
     height:9px;
+
     margin:6px auto 0;
+
     background:var(--orange);
+
     border-radius:50%;
-    transform:skewX(-20deg) rotate(-3deg);
-    box-shadow:0 4px 0 #8f3500,0 0 15px rgba(255,120,0,.3);
+
+    transform:
+        skewX(-20deg)
+        rotate(-3deg);
+
+    box-shadow:
+        0 4px 0 #8f3500,
+        0 0 15px rgba(255,120,0,.3);
 }
+
 .hero-content p{
     color:rgba(255,255,255,.9);
-    font-size:clamp(16px,2.2vw,23px);
+
+    font-size:
+        clamp(
+            16px,
+            2.2vw,
+            23px
+        );
+
     letter-spacing:4px;
+
     text-transform:uppercase;
+
     margin-bottom:35px;
+
     font-weight:500;
 }
+
+
+/* =====================================================
+   BOTÓN VER MENÚ
+===================================================== */
+
 .open-menu-btn{
     position:relative;
+
     padding:17px 42px;
+
     border:2px solid var(--gold);
+
     border-radius:50px;
-    background:linear-gradient(135deg,#ffca28,#ff9f00);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffca28,
+            #ff9f00
+        );
+
     color:#17110a;
+
     font-size:18px;
+
     font-weight:800;
+
     letter-spacing:1px;
+
     cursor:pointer;
+
     transition:.3s ease;
-    box-shadow:0 12px 30px rgba(255,183,3,.28);
+
+    box-shadow:
+        0 12px 30px
+        rgba(255,183,3,.28);
 }
+
 .open-menu-btn:hover{
-    transform:translateY(-4px) scale(1.03);
-    box-shadow:0 17px 38px rgba(255,183,3,.4);
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 17px 38px
+        rgba(255,183,3,.4);
 }
-.open-menu-btn:active{transform:scale(.98)}
+
+.open-menu-btn:active{
+    transform:scale(.98);
+}
+
 .open-menu-btn::before{
     content:"";
+
     position:absolute;
+
     inset:-6px;
-    border:1px solid rgba(255,255,255,.25);
+
+    border:1px solid
+        rgba(255,255,255,.25);
+
     border-radius:inherit;
 }
 
-/* ===== MENU OVERLAY ===== */
+
+/* =====================================================
+   MENU OVERLAY
+===================================================== */
+
 .menu-container{
     position:fixed;
+
     inset:0;
+
     width:100%;
     height:100vh;
+
     background:
-      radial-gradient(circle at 50% 0%,rgba(255,120,0,.08),transparent 35%),
-      #080809;
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,120,0,.08),
+            transparent 35%
+        ),
+        #080809;
+
     opacity:0;
+
     visibility:hidden;
+
     transition:.45s ease;
+
     z-index:999;
+
     overflow-y:auto;
 }
-.menu-container.active{opacity:1;visibility:visible}
-.menu-container::-webkit-scrollbar{width:9px}
 
-/* ===== HEADER ===== */
+.menu-container.active{
+    opacity:1;
+
+    visibility:visible;
+}
+
+.menu-container::-webkit-scrollbar{
+    width:9px;
+}
+
+
+/* =====================================================
+   HEADER DEL MENÚ
+===================================================== */
+
 .menu-header{
     width:100%;
-    padding:15px 70px 15px 28px;
-    background:rgba(8,8,9,.88);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--line);
-    display:flex;
-    justify-content:center;
-    align-items:center;
+
+    height:76px;
+
     position:sticky;
+
     top:0;
+
     z-index:100;
-}
-.logo-area{
+
     display:flex;
+
     align-items:center;
-    gap:10px;
+
+    justify-content:center;
+
+    padding:0;
+
+    background:
+        rgba(8,8,9,.94);
+
+    backdrop-filter:blur(14px);
+
+    -webkit-backdrop-filter:blur(14px);
+
+    border-bottom:
+        1px solid var(--line);
 }
+
+
+/* =====================================================
+   LOGO CENTRADO DEL HEADER
+===================================================== */
+
+.logo-area{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:max-content;
+
+    max-width:calc(100% - 130px);
+}
+
 .logo-area h1{
     display:flex;
+
     align-items:center;
+
+    justify-content:center;
+
     gap:5px;
+
+    margin:0;
+
+    padding:0;
+
     text-transform:uppercase;
+
     line-height:1;
+
     transform:rotate(-1deg);
-    filter:drop-shadow(2px 3px 0 rgba(0,0,0,.6));
+
+    white-space:nowrap;
+
+    filter:
+        drop-shadow(
+            2px 3px 0 rgba(0,0,0,.6)
+        );
 }
+
 .logo-area h1 .brand-white{
     color:#f5f5f5;
-    font-family:'Permanent Marker',cursive;
+
+    font-family:
+        'Permanent Marker',
+        cursive;
+
     font-size:27px;
 }
+
 .logo-area h1 .brand-orange{
     color:var(--orange);
-    font-family:'Eater',cursive;
+
+    font-family:
+        'Eater',
+        cursive;
+
     font-size:30px;
-    text-shadow:2px 2px 0 #8f3500;
+
+    text-shadow:
+        2px 2px 0 #8f3500;
 }
 
-/* ===== CERRAR ===== */
+
+/* =====================================================
+   BOTÓN CERRAR
+===================================================== */
+
 .close-btn{
     position:fixed;
-    top:14px;
+
+    top:13px;
+
     right:18px;
-    width:48px;
-    height:48px;
-    border:1px solid rgba(255,183,3,.55);
-    border-radius:50%;
-    background:rgba(255,183,3,.12);
-    backdrop-filter:blur(8px);
-    color:var(--gold);
-    font-size:29px;
+
+    width:50px;
+
+    height:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:0;
+
+    margin:0;
+
+    border:
+        2px solid
+        rgba(255,183,3,.65);
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,183,3,.18),
+            rgba(255,120,0,.08)
+        );
+
+    color:#fff;
+
+    font-family:Arial,sans-serif;
+
+    font-size:32px;
+
+    font-weight:300;
+
     line-height:1;
+
     cursor:pointer;
+
     z-index:1000;
-    transition:.25s;
-}
-.close-btn:hover{
-    background:var(--gold);
-    color:#111;
-    transform:rotate(90deg);
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.45),
+        0 0 15px rgba(255,183,3,.08);
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
 }
 
-/* ===== LIBRO / MENÚ ===== */
+.close-btn:hover{
+    background:
+        linear-gradient(
+            145deg,
+            #ffb703,
+            #ff7800
+        );
+
+    color:#111;
+
+    border-color:#ffd166;
+
+    transform:
+        scale(1.08)
+        rotate(90deg);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.5),
+        0 0 20px rgba(255,183,3,.3);
+}
+
+.close-btn:active{
+    transform:scale(.94);
+}
+
+
+/* =====================================================
+   LIBRO / MENÚ
+===================================================== */
+
 .book{
     width:min(1180px,92%);
+
     margin:35px auto 55px;
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     background:
-      linear-gradient(135deg,rgba(20,20,23,.94),rgba(9,9,11,.96)),
-      url("100.jpeg") center/cover;
-    border:1px solid rgba(255,183,3,.2);
+        linear-gradient(
+            135deg,
+            rgba(20,20,23,.94),
+            rgba(9,9,11,.96)
+        ),
+        url("100.jpeg") center/cover;
+
+    border:
+        1px solid
+        rgba(255,183,3,.2);
+
     border-radius:28px;
+
     overflow:hidden;
-    box-shadow:0 28px 90px rgba(0,0,0,.7),0 0 60px rgba(255,120,0,.05);
+
+    box-shadow:
+        0 28px 90px rgba(0,0,0,.7),
+        0 0 60px rgba(255,120,0,.05);
+
     animation:zoom .5s ease;
+
     position:relative;
 }
+
 .book::before{
     content:"";
+
     position:absolute;
+
     inset:0;
+
     pointer-events:none;
-    background:linear-gradient(90deg,rgba(255,255,255,.015),transparent 48%,rgba(255,120,0,.025));
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.015),
+            transparent 48%,
+            rgba(255,120,0,.025)
+        );
 }
+
 @keyframes zoom{
-    from{transform:scale(.96);opacity:0}
-    to{transform:scale(1);opacity:1}
+
+    from{
+        transform:scale(.96);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
 }
+
+
+/* =====================================================
+   PÁGINAS
+===================================================== */
+
 .page{
     padding:48px 42px;
+
     position:relative;
+
     z-index:1;
 }
+
 .page:first-child{
-    border-right:1px solid rgba(255,255,255,.08);
+    border-right:
+        1px solid
+        rgba(255,255,255,.08);
 }
+
+
+/* =====================================================
+   TÍTULOS
+===================================================== */
+
 .page-title{
     text-align:center;
+
     color:var(--gold);
+
     font-size:32px;
+
     font-weight:800;
+
     letter-spacing:.5px;
+
     margin-bottom:38px;
+
     position:relative;
-    text-shadow:0 3px 12px rgba(255,183,3,.15);
+
+    text-shadow:
+        0 3px 12px
+        rgba(255,183,3,.15);
 }
+
 .page-title::after{
     content:"";
+
     display:block;
+
     width:62px;
+
     height:4px;
+
     background:var(--orange);
+
     border-radius:20px;
+
     margin:12px auto 0;
 }
 
-/* ===== ITEMS ===== */
+
+/* =====================================================
+   ITEMS
+===================================================== */
+
 .menu-item{
     display:flex;
+
     gap:19px;
+
     margin-bottom:26px;
+
     align-items:center;
+
     padding:12px;
+
     border-radius:18px;
+
     border:1px solid transparent;
+
     transition:.3s ease;
 }
+
 .menu-item:hover{
     transform:translateY(-3px);
-    background:rgba(255,255,255,.035);
-    border-color:rgba(255,183,3,.16);
+
+    background:
+        rgba(255,255,255,.035);
+
+    border-color:
+        rgba(255,183,3,.16);
 }
+
 .menu-item img{
     width:112px;
+
     height:112px;
+
     object-fit:cover;
+
     border-radius:18px;
-    border:2px solid rgba(255,183,3,.7);
-    box-shadow:0 8px 22px rgba(0,0,0,.4);
+
+    border:
+        2px solid
+        rgba(255,183,3,.7);
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,.4);
+
     flex-shrink:0;
+
     transition:.3s;
 }
-.menu-item:hover img{transform:scale(1.04);border-color:var(--orange)}
-.item-info{flex:1;min-width:0}
+
+.menu-item:hover img{
+    transform:scale(1.04);
+
+    border-color:
+        var(--orange);
+}
+
+.item-info{
+    flex:1;
+
+    min-width:0;
+}
+
 .item-info h3{
     color:#fff;
+
     font-size:20px;
+
     font-weight:700;
+
     margin-bottom:6px;
 }
+
 .item-info p{
     color:#b9b9bd;
+
     line-height:1.55;
+
     font-size:13px;
 }
+
 .price{
     display:inline-block;
+
     margin-top:9px;
+
     padding:4px 12px;
+
     border-radius:30px;
+
     color:#16110a;
-    background:linear-gradient(135deg,#ffd166,#ff9800);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd166,
+            #ff9800
+        );
+
     font-size:18px;
+
     font-weight:800;
-    box-shadow:0 5px 15px rgba(255,183,3,.15);
+
+    box-shadow:
+        0 5px 15px
+        rgba(255,183,3,.15);
 }
 
-/* ===== SCROLL ===== */
-::-webkit-scrollbar{width:8px}
-::-webkit-scrollbar-track{background:#0b0b0d}
-::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold),var(--orange));border-radius:10px}
 
-/* ===== RESPONSIVE ===== */
+/* =====================================================
+   SCROLL
+===================================================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0b0b0d;
+}
+
+::-webkit-scrollbar-thumb{
+    background:
+        linear-gradient(
+            var(--gold),
+            var(--orange)
+        );
+
+    border-radius:10px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
 @media(max-width:900px){
-    .hero{min-height:100svh}
-    .hero-content h1 .brand-white{font-size:clamp(48px,14vw,78px)}
-    .hero-content h1 .brand-orange{font-size:clamp(62px,17vw,100px)}
-    .hero-content p{font-size:14px;letter-spacing:2px;margin-bottom:28px}
-    .open-menu-btn{font-size:16px;padding:15px 34px}
 
-    .menu-header{padding:13px 62px 13px 18px}
-    .logo-area h1 .brand-white{font-size:21px}
-    .logo-area h1 .brand-orange{font-size:24px}
+    .hero{
+        min-height:100svh;
+    }
+
+    .hero-content h1 .brand-white{
+        font-size:
+            clamp(
+                48px,
+                14vw,
+                78px
+            );
+    }
+
+    .hero-content h1 .brand-orange{
+        font-size:
+            clamp(
+                62px,
+                17vw,
+                100px
+            );
+    }
+
+    .hero-content p{
+        font-size:14px;
+
+        letter-spacing:2px;
+
+        margin-bottom:28px;
+    }
+
+    .open-menu-btn{
+        font-size:16px;
+
+        padding:15px 34px;
+    }
+
+
+    /* HEADER */
+
+    .menu-header{
+        height:70px;
+
+        padding:0;
+    }
+
+    .logo-area{
+        max-width:
+            calc(100% - 125px);
+    }
+
+    .logo-area h1 .brand-white{
+        font-size:21px;
+    }
+
+    .logo-area h1 .brand-orange{
+        font-size:24px;
+    }
+
+
+    /* CERRAR */
+
+    .close-btn{
+        top:10px;
+
+        right:12px;
+
+        width:45px;
+
+        height:45px;
+
+        font-size:28px;
+
+        border-radius:13px;
+    }
+
+
+    /* LIBRO */
 
     .book{
         width:100%;
+
         margin:0;
+
         display:flex;
+
         flex-direction:column;
+
         border-radius:0;
+
         border-left:0;
+
         border-right:0;
     }
+
     .page{
         width:100%;
+
         padding:35px 17px;
     }
+
     .page:first-child{
         border-right:none;
-        border-bottom:1px solid rgba(255,255,255,.08);
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.08);
     }
-    .page-title{font-size:27px;margin-bottom:28px}
-    .menu-item{align-items:flex-start;padding:8px;margin-bottom:20px}
-    .menu-item img{width:92px;height:92px;border-radius:15px}
-    .item-info h3{font-size:17px}
-    .item-info p{font-size:12px}
-    .price{font-size:16px;padding:3px 10px}
+
+    .page-title{
+        font-size:27px;
+
+        margin-bottom:28px;
+    }
+
+    .menu-item{
+        align-items:flex-start;
+
+        padding:8px;
+
+        margin-bottom:20px;
+    }
+
+    .menu-item img{
+        width:92px;
+
+        height:92px;
+
+        border-radius:15px;
+    }
+
+    .item-info h3{
+        font-size:17px;
+    }
+
+    .item-info p{
+        font-size:12px;
+    }
+
+    .price{
+        font-size:16px;
+
+        padding:3px 10px;
+    }
 }
+
+
+/* =====================================================
+   MÓVIL
+===================================================== */
+
 @media(max-width:480px){
-    .hero-content h1 .brand-white{font-size:49px}
-    .hero-content h1 .brand-orange{font-size:65px}
-    .hero-content h1 .brand-orange::after{height:7px}
-    .hero-content p{font-size:11px}
-    .close-btn{width:43px;height:43px;right:12px;font-size:25px}
-    .menu-item{gap:13px}
-    .menu-item img{width:82px;height:82px}
-    .item-info h3{font-size:15px}
-    .item-info p{font-size:11px;line-height:1.45}
-    .price{font-size:15px}
+
+    .hero-content h1 .brand-white{
+        font-size:49px;
+    }
+
+    .hero-content h1 .brand-orange{
+        font-size:65px;
+    }
+
+    .hero-content h1 .brand-orange::after{
+        height:7px;
+    }
+
+    .hero-content p{
+        font-size:11px;
+    }
+
+
+    /* HEADER */
+
+    .menu-header{
+        height:68px;
+
+        padding:0;
+    }
+
+    .logo-area{
+        max-width:
+            calc(100% - 105px);
+    }
+
+    .logo-area h1{
+        gap:3px;
+    }
+
+    .logo-area h1 .brand-white{
+        font-size:19px;
+    }
+
+    .logo-area h1 .brand-orange{
+        font-size:22px;
+    }
+
+
+    /* BOTÓN CERRAR */
+
+    .close-btn{
+        top:10px;
+
+        right:10px;
+
+        width:44px;
+
+        height:44px;
+
+        border-radius:12px;
+
+        font-size:27px;
+    }
+
+
+    /* ITEMS */
+
+    .menu-item{
+        gap:13px;
+    }
+
+    .menu-item img{
+        width:82px;
+
+        height:82px;
+    }
+
+    .item-info h3{
+        font-size:15px;
+    }
+
+    .item-info p{
+        font-size:11px;
+
+        line-height:1.45;
+    }
+
+    .price{
+        font-size:15px;
+    }
+
 }
+
+
 </style>
 </head>
+
 <body>
 
-<!-- =========================
-PORTADA
-========================= -->
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
 
 <section class="hero">
 
     <div class="hero-content">
 
-        <h1 class="brand-small"><span class="brand-white">MOCHIS</span><span class="brand-orange">BURGUERS</span></h1>
+        <h1 class="brand-small">
+
+            <span class="brand-white">
+                MOCHIS
+            </span>
+
+            <span class="brand-orange">
+                BURGUERS
+            </span>
+
+        </h1>
 
         <p>
-            Menú 
+            Menú
         </p>
 
-        <button class="open-menu-btn" onclick="openMenu()">
+        <button
+            class="open-menu-btn"
+            onclick="openMenu()"
+        >
             VER MENÚ
         </button>
 
@@ -402,29 +1076,63 @@ PORTADA
 
 </section>
 
-<!-- =========================
-MENU
-========================= -->
 
-<div class="menu-container" id="menuContainer">
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<div
+    class="menu-container"
+    id="menuContainer"
+>
+
+
+    <!-- HEADER -->
 
     <div class="menu-header">
 
         <div class="logo-area">
 
-            <h1 class="brand-small"><span class="brand-white">MOCHIS</span><span class="brand-orange">BURGUERS</span></h1>
+            <h1 class="brand-small">
+
+                <span class="brand-white">
+                    MOCHIS
+                </span>
+
+                <span class="brand-orange">
+                    BURGUERS
+                </span>
+
+            </h1>
 
         </div>
 
     </div>
 
-    <button class="close-btn" onclick="closeMenu()">
+
+    <!-- BOTÓN CERRAR -->
+
+    <button
+        class="close-btn"
+        onclick="closeMenu()"
+        aria-label="Cerrar menú"
+    >
         ×
     </button>
 
+
+
+    <!-- =================================================
+         LIBRO
+    ================================================= -->
+
     <div class="book">
 
-        <!-- PAGINA IZQUIERDA -->
+
+        <!-- =========================
+             PÁGINA IZQUIERDA
+        ========================== -->
 
         <div class="page">
 
@@ -432,20 +1140,28 @@ MENU
                 Hamburguesas
             </h2>
 
-            
-           
-            
+
+            <!-- HAMBURGUESA 1 -->
 
             <div class="menu-item">
 
-                <img src="5.jpeg">
+                <img
+                    src="5.jpeg"
+                    alt="La tradicional"
+                >
 
                 <div class="item-info">
 
-                    <h3>La tradicional</h3>
+                    <h3>
+                        La tradicional
+                    </h3>
 
                     <p>
-                       Queso cheddar amarillo, lechuga, tomate, cebolla, salsa de la casa, cebolla caramelizada acompañada de papas fritas 
+                        Queso cheddar amarillo,
+                        lechuga, tomate, cebolla,
+                        salsa de la casa, cebolla
+                        caramelizada acompañada
+                        de papas fritas.
                     </p>
 
                     <div class="price">
@@ -455,16 +1171,32 @@ MENU
                 </div>
 
             </div>
-<div class="menu-item">
 
-                <img src="6.jpeg">
+
+
+            <!-- HAMBURGUESA 2 -->
+
+            <div class="menu-item">
+
+                <img
+                    src="6.jpeg"
+                    alt="La Mochis Burgers"
+                >
 
                 <div class="item-info">
 
-                    <h3>La mochis burguers</h3>
+                    <h3>
+                        La mochis burguers
+                    </h3>
 
                     <p>
-                      Delicioso y fresco pan casero, con cebolla caramelizada, bacon crujiente, nuestra salsa secreta, y un delicioso queso Mounster, lechuga tomate y cebolla frescos, Acompañada de papas fritas
+                        Delicioso y fresco pan casero,
+                        con cebolla caramelizada,
+                        bacon crujiente, nuestra salsa
+                        secreta, y un delicioso queso
+                        Mounster, lechuga, tomate y
+                        cebolla frescos. Acompañada
+                        de papas fritas.
                     </p>
 
                     <div class="price">
@@ -474,16 +1206,30 @@ MENU
                 </div>
 
             </div>
+
+
+
+            <!-- HAMBURGUESA 3 -->
+
             <div class="menu-item">
 
-                <img src="7.jpeg">
+                <img
+                    src="7.jpeg"
+                    alt="Hamburguesa de Pollo"
+                >
 
                 <div class="item-info">
 
-                    <h3>Hamburguesa de Pollo</h3>
+                    <h3>
+                        Hamburguesa de Pollo
+                    </h3>
 
                     <p>
-                       Sándwich de pollo hot (filete de pollo empanizado reahogado en salsa picante de la casa, pepinillo, aderezo casero, papas fritas)
+                        Sándwich de pollo hot
+                        (filete de pollo empanizado
+                        reahogado en salsa picante
+                        de la casa, pepinillo, aderezo
+                        casero, papas fritas).
                     </p>
 
                     <div class="price">
@@ -493,9 +1239,14 @@ MENU
                 </div>
 
             </div>
+
         </div>
 
-        <!-- PAGINA DERECHA -->
+
+
+        <!-- =========================
+             PÁGINA DERECHA
+        ========================== -->
 
         <div class="page">
 
@@ -503,16 +1254,24 @@ MENU
                 Bebidas & Extras
             </h2>
 
+
+            <!-- COCA COLA -->
+
             <div class="menu-item">
 
-                <img src="104.jpg">
+                <img
+                    src="104.jpg"
+                    alt="Coca Cola"
+                >
 
                 <div class="item-info">
 
-                    <h3>Coca cola</h3>
+                    <h3>
+                        Coca Cola
+                    </h3>
 
                     <p>
-                        coca cola de lata
+                        Coca Cola de lata.
                     </p>
 
                     <div class="price">
@@ -523,16 +1282,25 @@ MENU
 
             </div>
 
-             <div class="menu-item">
 
-                <img src="105.webp">
+
+            <!-- SPRITE -->
+
+            <div class="menu-item">
+
+                <img
+                    src="105.webp"
+                    alt="Sprite"
+                >
 
                 <div class="item-info">
 
-                    <h3>Sprite</h3>
-
-                    <p>
+                    <h3>
                         Sprite
+                    </h3>
+
+                    <p>
+                        Sprite.
                     </p>
 
                     <div class="price">
@@ -542,18 +1310,26 @@ MENU
                 </div>
 
             </div>
-           
+
+
+
+            <!-- FANTA -->
 
             <div class="menu-item">
 
-                <img src="106.png">
+                <img
+                    src="106.png"
+                    alt="Fanta naranja"
+                >
 
                 <div class="item-info">
 
-                    <h3>Fanta naranja</h3>
+                    <h3>
+                        Fanta naranja
+                    </h3>
 
                     <p>
-                        Fanta naranja
+                        Fanta naranja.
                     </p>
 
                     <div class="price">
@@ -570,21 +1346,28 @@ MENU
 
 </div>
 
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
 function openMenu(){
 
     document
-    .getElementById('menuContainer')
-    .classList.add('active');
+        .getElementById('menuContainer')
+        .classList.add('active');
 
 }
+
 
 function closeMenu(){
 
     document
-    .getElementById('menuContainer')
-    .classList.remove('active');
+        .getElementById('menuContainer')
+        .classList.remove('active');
 
 }
 
