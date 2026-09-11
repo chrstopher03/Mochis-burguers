@@ -1470,146 +1470,483 @@ body{
 
 
 
-<script>
-async function downloadMenuImage(event){
-    const btn=event && event.currentTarget ? event.currentTarget : document.querySelector('.download-menu-btn');
-    const menu=document.querySelector('.book');
+```html
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
-    if(!menu){
-        alert('No se encontró el menú.');
-        return;
+<script>
+
+/* =====================================================
+   ABRIR Y CERRAR MENÚ
+===================================================== */
+
+function openMenu(){
+    document.getElementById('menuContainer').classList.add('active');
+}
+
+function closeMenu(){
+    document.getElementById('menuContainer').classList.remove('active');
+}
+
+
+/* =====================================================
+   CARGAR HTML2CANVAS SOLO CUANDO SE NECESITA
+===================================================== */
+
+function loadHtml2Canvas(){
+
+    if(window.html2canvas){
+        return Promise.resolve(window.html2canvas);
     }
 
-    let clone1=null;
-    let clone2=null;
+    const urls=[
+        'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js',
+        'https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js'
+    ];
 
-    try{
-        if(btn){
-            btn.classList.add('loading');
-            btn.disabled=true;
-            btn.innerHTML='⏳ <span>GENERANDO...</span>';
-        }
+    return new Promise((resolve,reject)=>{
 
-        const html2canvas=await loadHtml2Canvas();
-        await waitForImages(menu);
+        let i=0;
 
-        /*
-         * Creamos un contenedor especial para la descarga.
-         * Dentro colocamos DOS copias del menú.
-         */
-        const wrapper=document.createElement('div');
+        const next=()=>{
 
-        wrapper.style.position='fixed';
-        wrapper.style.left='-100000px';
-        wrapper.style.top='0';
-        wrapper.style.width=menu.scrollWidth+'px';
-        wrapper.style.background='#080809';
-        wrapper.style.padding='0';
-        wrapper.style.margin='0';
-        wrapper.style.display='flex';
-        wrapper.style.flexDirection='column';
-        wrapper.style.gap='0';
-        wrapper.style.opacity='1';
-        wrapper.style.visibility='visible';
+            if(i>=urls.length){
 
-        clone1=menu.cloneNode(true);
-        clone2=menu.cloneNode(true);
+                reject(
+                    new Error(
+                        'No se pudo cargar el generador de imagen.'
+                    )
+                );
 
-        [clone1,clone2].forEach(clone=>{
-            clone.style.width=menu.scrollWidth+'px';
-            clone.style.maxWidth='none';
-            clone.style.height='auto';
-            clone.style.transform='none';
-            clone.style.margin='0';
-            clone.style.position='relative';
-            clone.style.left='auto';
-            clone.style.top='auto';
-            clone.style.display='grid';
-            clone.style.opacity='1';
-            clone.style.visibility='visible';
-            clone.style.overflow='visible';
-            clone.style.flexShrink='0';
-        });
-
-        wrapper.appendChild(clone1);
-        wrapper.appendChild(clone2);
-        document.body.appendChild(wrapper);
-
-        await waitForImages(clone1);
-        await waitForImages(clone2);
-
-        /*
-         * Capturamos las DOS copias juntas.
-         */
-        const canvas=await html2canvas(wrapper,{
-            scale:Math.min(3,Math.max(2,window.devicePixelRatio || 1)),
-            useCORS:true,
-            allowTaint:false,
-            backgroundColor:'#080809',
-            logging:false,
-            scrollX:0,
-            scrollY:0,
-            width:wrapper.scrollWidth,
-            height:wrapper.scrollHeight,
-            windowWidth:wrapper.scrollWidth,
-            windowHeight:wrapper.scrollHeight,
-            imageTimeout:20000
-        });
-
-        wrapper.remove();
-
-        /*
-         * Descargar la imagen final.
-         */
-        canvas.toBlob(function(blob){
-
-            if(!blob){
-                alert('No se pudo crear la imagen. Intenta nuevamente.');
                 return;
             }
 
-            const url=URL.createObjectURL(blob);
+            const script=document.createElement('script');
 
-            const a=document.createElement('a');
-            a.href=url;
-            a.download='Menu-Mochis-Burguers-2-en-1.png';
-            a.style.display='none';
+            script.src=urls[i++];
 
-            document.body.appendChild(a);
-            a.click();
+            script.onload=()=>{
 
-            setTimeout(()=>{
-                URL.revokeObjectURL(url);
-                a.remove();
-            },1500);
+                if(window.html2canvas){
+                    resolve(window.html2canvas);
+                }else{
+                    next();
+                }
 
-        },'image/png');
+            };
+
+            script.onerror=next;
+
+            document.head.appendChild(script);
+        };
+
+        next();
+
+    });
+}
+
+
+/* =====================================================
+   ESPERAR A QUE TODAS LAS IMÁGENES CARGUEN
+===================================================== */
+
+function waitForImages(root){
+
+    const imgs=[...root.querySelectorAll('img')];
+
+    return Promise.all(
+
+        imgs.map(img=>{
+
+            if(img.complete){
+                return Promise.resolve();
+            }
+
+            return new Promise(resolve=>{
+
+                img.addEventListener(
+                    'load',
+                    resolve,
+                    {once:true}
+                );
+
+                img.addEventListener(
+                    'error',
+                    resolve,
+                    {once:true}
+                );
+
+            });
+
+        })
+
+    );
+}
+
+
+/* =====================================================
+   DESCARGAR MENÚ
+   CREA 2 COPIAS DEL MENÚ EN UNA SOLA IMAGEN
+===================================================== */
+
+async function downloadMenuImage(event){
+
+    const btn=
+        event && event.currentTarget
+        ? event.currentTarget
+        : document.querySelector('.download-menu-btn');
+
+    const menu=document.querySelector('.book');
+
+    if(!menu){
+
+        alert('No se encontró el menú.');
+
+        return;
+    }
+
+
+    let wrapper=null;
+
+
+    try{
+
+        /* ---------------------------------------------
+           CAMBIAR BOTÓN A "GENERANDO..."
+        --------------------------------------------- */
+
+        if(btn){
+
+            btn.classList.add('loading');
+
+            btn.disabled=true;
+
+            btn.innerHTML=
+                '⏳ <span>GENERANDO...</span>';
+
+        }
+
+
+        /* ---------------------------------------------
+           CARGAR HTML2CANVAS
+        --------------------------------------------- */
+
+        const html2canvas=
+            await loadHtml2Canvas();
+
+
+        /* ---------------------------------------------
+           ESPERAR IMÁGENES DEL MENÚ ORIGINAL
+        --------------------------------------------- */
+
+        await waitForImages(menu);
+
+
+        /* ---------------------------------------------
+           CREAR CONTENEDOR PARA LAS 2 COPIAS
+        --------------------------------------------- */
+
+        wrapper=document.createElement('div');
+
+        wrapper.style.position='fixed';
+
+        wrapper.style.left='-100000px';
+
+        wrapper.style.top='0';
+
+        wrapper.style.width=
+            menu.scrollWidth+'px';
+
+        wrapper.style.background='#080809';
+
+        wrapper.style.padding='0';
+
+        wrapper.style.margin='0';
+
+        wrapper.style.display='flex';
+
+        wrapper.style.flexDirection='column';
+
+        wrapper.style.gap='0';
+
+        wrapper.style.opacity='1';
+
+        wrapper.style.visibility='visible';
+
+        wrapper.style.overflow='visible';
+
+
+        /* ---------------------------------------------
+           CREAR PRIMERA COPIA
+        --------------------------------------------- */
+
+        const clone1=
+            menu.cloneNode(true);
+
+
+        /* ---------------------------------------------
+           CREAR SEGUNDA COPIA
+        --------------------------------------------- */
+
+        const clone2=
+            menu.cloneNode(true);
+
+
+        /* ---------------------------------------------
+           CONFIGURAR LAS DOS COPIAS
+        --------------------------------------------- */
+
+        [clone1,clone2].forEach(clone=>{
+
+            clone.style.width=
+                menu.scrollWidth+'px';
+
+            clone.style.maxWidth='none';
+
+            clone.style.height='auto';
+
+            clone.style.transform='none';
+
+            clone.style.margin='0';
+
+            clone.style.position='relative';
+
+            clone.style.left='auto';
+
+            clone.style.top='auto';
+
+            clone.style.display='grid';
+
+            clone.style.opacity='1';
+
+            clone.style.visibility='visible';
+
+            clone.style.overflow='visible';
+
+            clone.style.flexShrink='0';
+
+        });
+
+
+        /* ---------------------------------------------
+           AGREGAR LOS DOS MENÚS
+        --------------------------------------------- */
+
+        wrapper.appendChild(clone1);
+
+        wrapper.appendChild(clone2);
+
+
+        /* ---------------------------------------------
+           AGREGAR AL DOCUMENTO
+        --------------------------------------------- */
+
+        document.body.appendChild(wrapper);
+
+
+        /* ---------------------------------------------
+           ESPERAR IMÁGENES DE AMBAS COPIAS
+        --------------------------------------------- */
+
+        await waitForImages(clone1);
+
+        await waitForImages(clone2);
+
+
+        /* ---------------------------------------------
+           CALCULAR TAMAÑO FINAL
+        --------------------------------------------- */
+
+        const ancho=
+            wrapper.scrollWidth;
+
+        const alto=
+            wrapper.scrollHeight;
+
+
+        /* ---------------------------------------------
+           GENERAR IMAGEN
+        --------------------------------------------- */
+
+        const canvas=
+            await html2canvas(
+                wrapper,
+                {
+
+                    scale:
+                        Math.min(
+                            3,
+                            Math.max(
+                                2,
+                                window.devicePixelRatio || 1
+                            )
+                        ),
+
+                    useCORS:true,
+
+                    allowTaint:false,
+
+                    backgroundColor:'#080809',
+
+                    logging:false,
+
+                    scrollX:0,
+
+                    scrollY:0,
+
+                    width:ancho,
+
+                    height:alto,
+
+                    windowWidth:ancho,
+
+                    windowHeight:alto,
+
+                    imageTimeout:20000
+
+                }
+            );
+
+
+        /* ---------------------------------------------
+           ELIMINAR CONTENEDOR
+        --------------------------------------------- */
+
+        wrapper.remove();
+
+        wrapper=null;
+
+
+        /* ---------------------------------------------
+           CREAR PNG
+        --------------------------------------------- */
+
+        canvas.toBlob(
+
+            function(blob){
+
+                if(!blob){
+
+                    alert(
+                        'No se pudo crear la imagen. '+
+                        'Intenta nuevamente.'
+                    );
+
+                    return;
+                }
+
+
+                /* -------------------------------------
+                   CREAR ENLACE DE DESCARGA
+                ------------------------------------- */
+
+                const url=
+                    URL.createObjectURL(blob);
+
+
+                const a=
+                    document.createElement('a');
+
+
+                a.href=url;
+
+
+                a.download=
+                    'Menu-Mochis-Burguers-2-en-1.png';
+
+
+                a.style.display='none';
+
+
+                document.body.appendChild(a);
+
+
+                a.click();
+
+
+                /* -------------------------------------
+                   LIMPIAR
+                ------------------------------------- */
+
+                setTimeout(()=>{
+
+                    URL.revokeObjectURL(url);
+
+                    a.remove();
+
+                },1500);
+
+            },
+
+            'image/png'
+
+        );
+
 
     }catch(error){
 
-        console.error('Error al descargar el menú:',error);
+        console.error(
+            'Error al descargar el menú:',
+            error
+        );
+
+
+        /* ---------------------------------------------
+           ELIMINAR CONTENEDOR SI OCURRIÓ UN ERROR
+        --------------------------------------------- */
 
         if(wrapper){
+
             try{
+
                 wrapper.remove();
+
             }catch(e){}
+
         }
+
 
         alert(
             'No se pudo descargar el menú como imagen. '+
             'Revisa tu conexión a internet e inténtalo nuevamente.'
         );
 
+
     }finally{
 
+        /* ---------------------------------------------
+           RESTAURAR BOTÓN
+        --------------------------------------------- */
+
         if(btn){
+
             btn.classList.remove('loading');
+
             btn.disabled=false;
-            btn.innerHTML='📥 <span>DESCARGAR</span>';
+
+            btn.innerHTML=
+                '📥 <span>DESCARGAR</span>';
+
         }
+
     }
+
 }
+
 </script>
+```
+
+Con este código, al pulsar **📥 DESCARGAR** se generará:
+
+**MENÚ 1 + MENÚ 2 → una sola imagen PNG**
+
+y se descargará como:
+
+`Menu-Mochis-Burguers-2-en-1.png`
+
+Si luego quieres imprimirla, puedes seleccionar **“Ajustar a página”** para que los dos menús entren en una sola hoja.
+
 
 </body>
 </html>
