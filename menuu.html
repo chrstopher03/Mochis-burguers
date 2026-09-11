@@ -588,94 +588,120 @@ body{
     transform:scale(.94);
 }
 
-
 /* =====================================================
-   LIBRO / MENÚ
+   LIBRO / MENÚ — FONDO MÁS VISIBLE
 ===================================================== */
 
 .book{
     width:min(1180px,92%);
-
     margin:35px auto 55px;
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
 
+    /* Imagen mucho más visible */
     background:
         linear-gradient(
             135deg,
-            rgba(20,20,23,.94),
-            rgba(9,9,11,.96)
+            rgba(10,10,10,.28),
+            rgba(10,10,10,.18)
         ),
-        url("100.jpeg") center/cover;
+        url("100.jpeg") center/cover no-repeat;
 
     border:
         1px solid
-        rgba(255,183,3,.2);
+        rgba(255,183,3,.28);
 
     border-radius:28px;
-
     overflow:hidden;
 
     box-shadow:
-        0 28px 90px rgba(0,0,0,.7),
-        0 0 60px rgba(255,120,0,.05);
+        0 28px 90px rgba(0,0,0,.65),
+        0 0 60px rgba(255,120,0,.10);
 
     animation:zoom .5s ease;
-
     position:relative;
 }
 
+/* Capa muy ligera, ya no tapa la fotografía */
 .book::before{
     content:"";
-
     position:absolute;
-
     inset:0;
-
     pointer-events:none;
 
     background:
         linear-gradient(
             90deg,
-            rgba(255,255,255,.015),
-            transparent 48%,
-            rgba(255,120,0,.025)
+            rgba(255,255,255,.025),
+            rgba(0,0,0,.04) 50%,
+            rgba(255,120,0,.035)
         );
+
+    z-index:0;
 }
-
-@keyframes zoom{
-
-    from{
-        transform:scale(.96);
-        opacity:0;
-    }
-
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
-
-}
-
 
 /* =====================================================
-   PÁGINAS
+   PÁGINAS — TRANSPARENTES PARA DEJAR VER 100.jpeg
 ===================================================== */
 
 .page{
     padding:48px 42px;
-
     position:relative;
-
     z-index:1;
+
+    /* Antes no dejaba ver bien el fondo */
+    background:rgba(8,8,9,.18);
+
+    backdrop-filter:blur(1.5px);
+    -webkit-backdrop-filter:blur(1.5px);
 }
 
 .page:first-child{
     border-right:
         1px solid
-        rgba(255,255,255,.08);
+        rgba(255,255,255,.12);
+}
+
+/* En los móviles también se conserva la imagen */
+@media(max-width:900px){
+
+    .book{
+        width:100%;
+        margin:0;
+
+        display:flex;
+        flex-direction:column;
+
+        border-radius:0;
+        border-left:0;
+        border-right:0;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(8,8,9,.24),
+                rgba(8,8,9,.16)
+            ),
+            url("100.jpeg") center/cover fixed no-repeat;
+    }
+
+    .page{
+        width:100%;
+        padding:35px 17px;
+
+        background:rgba(8,8,9,.20);
+
+        backdrop-filter:blur(1.5px);
+        -webkit-backdrop-filter:blur(1.5px);
+    }
+
+    .page:first-child{
+        border-right:none;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.12);
+    }
 }
 
 
@@ -1395,18 +1421,18 @@ body{
             <div class="menu-item">
 
                 <img
-                    src="106.png"
+                    src="110.webp"
                     alt="Fanta naranja"
                 >
 
                 <div class="item-info">
 
                     <h3>
-                        Fanta naranja
+                        Fanta uva
                     </h3>
 
                     <p>
-                        Fanta naranja.
+                        Fanta uva.
                     </p>
 
                     <div class="price">
@@ -1417,6 +1443,30 @@ body{
 
             </div>
 
+             <div class="menu-item">
+
+                <img
+                    src="111.jpg"
+                    alt="Fanta naranja"
+                >
+
+                <div class="item-info">
+
+                    <h3>
+                        Agua fuente pura
+                    </h3>
+
+                    <p>
+                        Agua fuente pura
+                    </p>
+
+                    <div class="price">
+                        C$30
+                    </div>
+
+                </div>
+
+            </div>
         </div>
 
     </div>
