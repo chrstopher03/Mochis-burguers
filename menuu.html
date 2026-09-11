@@ -1470,115 +1470,143 @@ body{
 
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
-function openMenu(){
-    document.getElementById('menuContainer').classList.add('active');
-}
-
-function closeMenu(){
-    document.getElementById('menuContainer').classList.remove('active');
-}
-
-/* Carga html2canvas solo cuando se necesita, con respaldo */
-function loadHtml2Canvas(){
-    if(window.html2canvas) return Promise.resolve(window.html2canvas);
-    const urls=[
-        'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js',
-        'https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js'
-    ];
-    return new Promise((resolve,reject)=>{
-        let i=0;
-        const next=()=>{
-            if(i>=urls.length){ reject(new Error('No se pudo cargar el generador de imagen.')); return; }
-            const script=document.createElement('script');
-            script.src=urls[i++];
-            script.onload=()=>window.html2canvas ? resolve(window.html2canvas) : next();
-            script.onerror=next;
-            document.head.appendChild(script);
-        };
-        next();
-    });
-}
-
-function waitForImages(root){
-    const imgs=[...root.querySelectorAll('img')];
-    return Promise.all(imgs.map(img=>{
-        if(img.complete) return Promise.resolve();
-        return new Promise(resolve=>{
-            img.addEventListener('load',resolve,{once:true});
-            img.addEventListener('error',resolve,{once:true});
-        });
-    }));
-}
-
 async function downloadMenuImage(event){
     const btn=event && event.currentTarget ? event.currentTarget : document.querySelector('.download-menu-btn');
     const menu=document.querySelector('.book');
-    if(!menu){ alert('No se encontró el menú.'); return; }
+
+    if(!menu){
+        alert('No se encontró el menú.');
+        return;
+    }
+
+    let clone1=null;
+    let clone2=null;
 
     try{
-        if(btn){ btn.classList.add('loading'); btn.disabled=true; btn.innerHTML='⏳ <span>GENERANDO...</span>'; }
+        if(btn){
+            btn.classList.add('loading');
+            btn.disabled=true;
+            btn.innerHTML='⏳ <span>GENERANDO...</span>';
+        }
 
         const html2canvas=await loadHtml2Canvas();
         await waitForImages(menu);
 
-        // Clonamos el menú para que la captura no altere el que está viendo el cliente.
-        const clone=menu.cloneNode(true);
-        clone.style.width=menu.scrollWidth+'px';
-        clone.style.maxWidth='none';
-        clone.style.height='auto';
-        clone.style.transform='none';
-        clone.style.margin='0';
-        clone.style.position='fixed';
-        clone.style.left='-100000px';
-        clone.style.top='0';
-        clone.style.display='grid';
-        clone.style.opacity='1';
-        clone.style.visibility='visible';
-        clone.style.overflow='visible';
-        document.body.appendChild(clone);
-        await waitForImages(clone);
+        /*
+         * Creamos un contenedor especial para la descarga.
+         * Dentro colocamos DOS copias del menú.
+         */
+        const wrapper=document.createElement('div');
 
-        const canvas=await html2canvas(clone,{
-            scale: Math.min(3, Math.max(2, window.devicePixelRatio || 1)),
+        wrapper.style.position='fixed';
+        wrapper.style.left='-100000px';
+        wrapper.style.top='0';
+        wrapper.style.width=menu.scrollWidth+'px';
+        wrapper.style.background='#080809';
+        wrapper.style.padding='0';
+        wrapper.style.margin='0';
+        wrapper.style.display='flex';
+        wrapper.style.flexDirection='column';
+        wrapper.style.gap='0';
+        wrapper.style.opacity='1';
+        wrapper.style.visibility='visible';
+
+        clone1=menu.cloneNode(true);
+        clone2=menu.cloneNode(true);
+
+        [clone1,clone2].forEach(clone=>{
+            clone.style.width=menu.scrollWidth+'px';
+            clone.style.maxWidth='none';
+            clone.style.height='auto';
+            clone.style.transform='none';
+            clone.style.margin='0';
+            clone.style.position='relative';
+            clone.style.left='auto';
+            clone.style.top='auto';
+            clone.style.display='grid';
+            clone.style.opacity='1';
+            clone.style.visibility='visible';
+            clone.style.overflow='visible';
+            clone.style.flexShrink='0';
+        });
+
+        wrapper.appendChild(clone1);
+        wrapper.appendChild(clone2);
+        document.body.appendChild(wrapper);
+
+        await waitForImages(clone1);
+        await waitForImages(clone2);
+
+        /*
+         * Capturamos las DOS copias juntas.
+         */
+        const canvas=await html2canvas(wrapper,{
+            scale:Math.min(3,Math.max(2,window.devicePixelRatio || 1)),
             useCORS:true,
             allowTaint:false,
             backgroundColor:'#080809',
             logging:false,
             scrollX:0,
             scrollY:0,
-            width:clone.scrollWidth,
-            height:clone.scrollHeight,
-            windowWidth:clone.scrollWidth,
-            windowHeight:clone.scrollHeight,
+            width:wrapper.scrollWidth,
+            height:wrapper.scrollHeight,
+            windowWidth:wrapper.scrollWidth,
+            windowHeight:wrapper.scrollHeight,
             imageTimeout:20000
         });
-        clone.remove();
 
+        wrapper.remove();
+
+        /*
+         * Descargar la imagen final.
+         */
         canvas.toBlob(function(blob){
+
             if(!blob){
                 alert('No se pudo crear la imagen. Intenta nuevamente.');
                 return;
             }
+
             const url=URL.createObjectURL(blob);
+
             const a=document.createElement('a');
             a.href=url;
-            a.download='Menu-Mochis-Burguers.png';
+            a.download='Menu-Mochis-Burguers-2-en-1.png';
             a.style.display='none';
+
             document.body.appendChild(a);
             a.click();
-            setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); },1500);
+
+            setTimeout(()=>{
+                URL.revokeObjectURL(url);
+                a.remove();
+            },1500);
+
         },'image/png');
 
     }catch(error){
+
         console.error('Error al descargar el menú:',error);
-        alert('No se pudo descargar el menú como imagen. Revisa tu conexión a internet e inténtalo de nuevo.');
+
+        if(wrapper){
+            try{
+                wrapper.remove();
+            }catch(e){}
+        }
+
+        alert(
+            'No se pudo descargar el menú como imagen. '+
+            'Revisa tu conexión a internet e inténtalo nuevamente.'
+        );
+
     }finally{
-        if(btn){ btn.classList.remove('loading'); btn.disabled=false; btn.innerHTML='📥 <span>DESCARGAR</span>'; }
+
+        if(btn){
+            btn.classList.remove('loading');
+            btn.disabled=false;
+            btn.innerHTML='📥 <span>DESCARGAR</span>';
+        }
     }
 }
 </script>
