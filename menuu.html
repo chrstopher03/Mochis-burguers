@@ -433,73 +433,6 @@ body{
 }
 
 
-
-/* =====================================================
-   BOTÓN DESCARGAR MENÚ
-===================================================== */
-
-.download-menu-btn{
-    position:absolute;
-    left:18px;
-    top:13px;
-    height:50px;
-    padding:0 18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:7px;
-    border:2px solid rgba(255,183,3,.65);
-    border-radius:14px;
-    background:linear-gradient(
-        145deg,
-        rgba(255,183,3,.18),
-        rgba(255,120,0,.08)
-    );
-    color:#fff;
-    font-family:'Poppins',sans-serif;
-    font-size:13px;
-    font-weight:800;
-    letter-spacing:.4px;
-    cursor:pointer;
-    z-index:1000;
-    box-shadow:
-        0 6px 20px rgba(0,0,0,.45),
-        0 0 15px rgba(255,183,3,.08);
-    transition:.25s ease;
-}
-
-.download-menu-btn:hover{
-    background:linear-gradient(145deg,#ffb703,#ff7800);
-    color:#111;
-    border-color:#ffd166;
-    transform:scale(1.05);
-}
-
-.download-menu-btn:active{
-    transform:scale(.95);
-}
-
-.download-menu-btn.loading{
-    opacity:.7;
-    pointer-events:none;
-}
-
-@media(max-width:480px){
-    .download-menu-btn{
-        left:10px;
-        top:10px;
-        width:44px;
-        height:44px;
-        padding:0;
-        border-radius:12px;
-        font-size:20px;
-    }
-
-    .download-menu-btn span{
-        display:none;
-    }
-}
-
 /* =====================================================
    BOTÓN CERRAR
 ===================================================== */
@@ -588,120 +521,94 @@ body{
     transform:scale(.94);
 }
 
+
 /* =====================================================
-   LIBRO / MENÚ — FONDO MÁS VISIBLE
+   LIBRO / MENÚ
 ===================================================== */
 
 .book{
     width:min(1180px,92%);
+
     margin:35px auto 55px;
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
 
-    /* Imagen mucho más visible */
     background:
         linear-gradient(
             135deg,
-            rgba(10,10,10,.28),
-            rgba(10,10,10,.18)
+            rgba(20,20,23,.94),
+            rgba(9,9,11,.96)
         ),
-        url("100.jpeg") center/cover no-repeat;
+        url("100.jpeg") center/cover;
 
     border:
         1px solid
-        rgba(255,183,3,.28);
+        rgba(255,183,3,.2);
 
     border-radius:28px;
+
     overflow:hidden;
 
     box-shadow:
-        0 28px 90px rgba(0,0,0,.65),
-        0 0 60px rgba(255,120,0,.10);
+        0 28px 90px rgba(0,0,0,.7),
+        0 0 60px rgba(255,120,0,.05);
 
     animation:zoom .5s ease;
+
     position:relative;
 }
 
-/* Capa muy ligera, ya no tapa la fotografía */
 .book::before{
     content:"";
+
     position:absolute;
+
     inset:0;
+
     pointer-events:none;
 
     background:
         linear-gradient(
             90deg,
-            rgba(255,255,255,.025),
-            rgba(0,0,0,.04) 50%,
-            rgba(255,120,0,.035)
+            rgba(255,255,255,.015),
+            transparent 48%,
+            rgba(255,120,0,.025)
         );
-
-    z-index:0;
 }
 
+@keyframes zoom{
+
+    from{
+        transform:scale(.96);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+
 /* =====================================================
-   PÁGINAS — TRANSPARENTES PARA DEJAR VER 100.jpeg
+   PÁGINAS
 ===================================================== */
 
 .page{
     padding:48px 42px;
+
     position:relative;
+
     z-index:1;
-
-    /* Antes no dejaba ver bien el fondo */
-    background:rgba(8,8,9,.18);
-
-    backdrop-filter:blur(1.5px);
-    -webkit-backdrop-filter:blur(1.5px);
 }
 
 .page:first-child{
     border-right:
         1px solid
-        rgba(255,255,255,.12);
-}
-
-/* En los móviles también se conserva la imagen */
-@media(max-width:900px){
-
-    .book{
-        width:100%;
-        margin:0;
-
-        display:flex;
-        flex-direction:column;
-
-        border-radius:0;
-        border-left:0;
-        border-right:0;
-
-        background:
-            linear-gradient(
-                135deg,
-                rgba(8,8,9,.24),
-                rgba(8,8,9,.16)
-            ),
-            url("100.jpeg") center/cover fixed no-repeat;
-    }
-
-    .page{
-        width:100%;
-        padding:35px 17px;
-
-        background:rgba(8,8,9,.20);
-
-        backdrop-filter:blur(1.5px);
-        -webkit-backdrop-filter:blur(1.5px);
-    }
-
-    .page:first-child{
-        border-right:none;
-
-        border-bottom:
-            1px solid
-            rgba(255,255,255,.12);
-    }
+        rgba(255,255,255,.08);
 }
 
 
@@ -1201,16 +1108,6 @@ body{
 
         </div>
 
-        <button
-            class="download-menu-btn"
-            onclick="downloadMenuImage()"
-            type="button"
-            title="Descargar menú como imagen"
-            aria-label="Descargar menú como imagen"
-        >
-            📥 <span>DESCARGAR</span>
-        </button>
-
     </div>
 
 
@@ -1223,7 +1120,6 @@ body{
     >
         ×
     </button>
-
 
 
     <!-- =================================================
@@ -1470,117 +1366,30 @@ body{
 
 
 
+
 <!-- =====================================================
      JAVASCRIPT
 ===================================================== -->
 
 <script>
+
 function openMenu(){
-    document.getElementById('menuContainer').classList.add('active');
+
+    document
+        .getElementById('menuContainer')
+        .classList.add('active');
+
 }
+
 
 function closeMenu(){
-    document.getElementById('menuContainer').classList.remove('active');
+
+    document
+        .getElementById('menuContainer')
+        .classList.remove('active');
+
 }
 
-/* Carga html2canvas solo cuando se necesita, con respaldo */
-function loadHtml2Canvas(){
-    if(window.html2canvas) return Promise.resolve(window.html2canvas);
-    const urls=[
-        'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js',
-        'https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js'
-    ];
-    return new Promise((resolve,reject)=>{
-        let i=0;
-        const next=()=>{
-            if(i>=urls.length){ reject(new Error('No se pudo cargar el generador de imagen.')); return; }
-            const script=document.createElement('script');
-            script.src=urls[i++];
-            script.onload=()=>window.html2canvas ? resolve(window.html2canvas) : next();
-            script.onerror=next;
-            document.head.appendChild(script);
-        };
-        next();
-    });
-}
-
-function waitForImages(root){
-    const imgs=[...root.querySelectorAll('img')];
-    return Promise.all(imgs.map(img=>{
-        if(img.complete) return Promise.resolve();
-        return new Promise(resolve=>{
-            img.addEventListener('load',resolve,{once:true});
-            img.addEventListener('error',resolve,{once:true});
-        });
-    }));
-}
-
-async function downloadMenuImage(event){
-    const btn=event && event.currentTarget ? event.currentTarget : document.querySelector('.download-menu-btn');
-    const menu=document.querySelector('.book');
-    if(!menu){ alert('No se encontró el menú.'); return; }
-
-    try{
-        if(btn){ btn.classList.add('loading'); btn.disabled=true; btn.innerHTML='⏳ <span>GENERANDO...</span>'; }
-
-        const html2canvas=await loadHtml2Canvas();
-        await waitForImages(menu);
-
-        // Clonamos el menú para que la captura no altere el que está viendo el cliente.
-        const clone=menu.cloneNode(true);
-        clone.style.width=menu.scrollWidth+'px';
-        clone.style.maxWidth='none';
-        clone.style.height='auto';
-        clone.style.transform='none';
-        clone.style.margin='0';
-        clone.style.position='fixed';
-        clone.style.left='-100000px';
-        clone.style.top='0';
-        clone.style.display='grid';
-        clone.style.opacity='1';
-        clone.style.visibility='visible';
-        clone.style.overflow='visible';
-        document.body.appendChild(clone);
-        await waitForImages(clone);
-
-        const canvas=await html2canvas(clone,{
-            scale: Math.min(3, Math.max(2, window.devicePixelRatio || 1)),
-            useCORS:true,
-            allowTaint:false,
-            backgroundColor:'#080809',
-            logging:false,
-            scrollX:0,
-            scrollY:0,
-            width:clone.scrollWidth,
-            height:clone.scrollHeight,
-            windowWidth:clone.scrollWidth,
-            windowHeight:clone.scrollHeight,
-            imageTimeout:20000
-        });
-        clone.remove();
-
-        canvas.toBlob(function(blob){
-            if(!blob){
-                alert('No se pudo crear la imagen. Intenta nuevamente.');
-                return;
-            }
-            const url=URL.createObjectURL(blob);
-            const a=document.createElement('a');
-            a.href=url;
-            a.download='Menu-Mochis-Burguers.png';
-            a.style.display='none';
-            document.body.appendChild(a);
-            a.click();
-            setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); },1500);
-        },'image/png');
-
-    }catch(error){
-        console.error('Error al descargar el menú:',error);
-        alert('No se pudo descargar el menú como imagen. Revisa tu conexión a internet e inténtalo de nuevo.');
-    }finally{
-        if(btn){ btn.classList.remove('loading'); btn.disabled=false; btn.innerHTML='📥 <span>DESCARGAR</span>'; }
-    }
-}
 </script>
 
 </body>
