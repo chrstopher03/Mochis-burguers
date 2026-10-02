@@ -1,622 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<title>Mochi Burguers Somoto | Hamburguesas</title>
-
-<meta name="description" content="Burguer House en Somoto, Nicaragua. Hamburguesas artesanales, combos, burritos, sandwiches y comida rápida con el mejor sabor. Ordena en línea.">
-
-<meta name="keywords" content="hamburguesas Somoto, Mochi Burguers, comida rápida Nicaragua, hamburguesas artesanales, restaurante Somoto">
-
-<meta name="author" content="Burguer House">
-<meta name="robots" content="index,follow">
-<meta name="theme-color" content="#ff9800">
-
-<!-- FAVICON -->
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-<!-- PWA -->
-<link rel="manifest" href="manifest.json">
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<!-- Font Awesome -->
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mochis Burguers Somoto | Hamburguesas</title>
+<meta name="description" content="Mochis Burguers Somoto. Hamburguesas hechas al momento, ingredientes frescos y sabor brutal.">
+<meta name="theme-color" content="#080807"><link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Burguer House Somoto">
-<meta property="og:description" content="Las mejores hamburguesas artesanales de Somoto.">
-<meta property="og:image" content="https://TU-DOMINIO.com/icon-512.png">
-<meta property="og:url" content="https://TU-DOMINIO.com">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="es_NI">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Burguer House Somoto">
-<meta name="twitter:description" content="Las mejores hamburguesas artesanales de Somoto.">
-<meta name="twitter:image" content="https://TU-DOMINIO.com/icon-512.png">
-
-<!-- Google Search Console -->
-<meta name="google-site-verification" content="rlj_zZRs74C_vr9heuf-8LwLemF4QMakG0AgVhbBoBY">
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TF5LKFXGJZ"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-TF5LKFXGJZ');
-</script>
-
-<!-- Google Tag Manager -->
-<script>
-(function(w,d,s,l,i){
-w[l]=w[l]||[];
-w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-j.async=true;
-j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KMXWN6KB');
-</script>
-
-
-
-</head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
-:root{--black:#070707;--black2:#0e0d0c;--cream:#fff8ed;--muted:#aaa39b;--orange:#ff7a00;--gold:#ffb84d;--line:rgba(255,255,255,.10);--glass:rgba(17,16,15,.72);--shadow:0 30px 90px rgba(0,0,0,.55)}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;color:var(--cream);background:var(--black);overflow-x:hidden;min-height:100vh}
-body:before{content:"";position:fixed;inset:0;z-index:-4;background:url('100.jpeg') center/cover no-repeat;filter:saturate(.9);transform:scale(1.03)}
-body:after{content:"";position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.38) 35%,#070707 82%,#070707 100%);pointer-events:none}
-button,a{font:inherit}button{color:inherit}
-header{position:sticky;top:0;z-index:1000;padding:14px 5vw;background:rgba(7,7,7,.68);border-bottom:1px solid var(--line);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
-header>div{max-width:1320px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-family:'Oswald',sans-serif;font-size:25px;font-weight:600;letter-spacing:.4px;text-transform:uppercase}.logo:first-letter{color:var(--orange)}
-.estado-local{padding:7px 13px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.3px;border:1px solid var(--line);background:rgba(255,255,255,.04);white-space:nowrap}.abierto{color:#75e69a;border-color:rgba(117,230,154,.22);background:rgba(117,230,154,.08)}.cerrado{color:#ff9387;border-color:rgba(255,147,135,.2);background:rgba(255,147,135,.07)}
-.cart span{position:absolute;right:-3px;top:-3px;min-width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#111;color:#fff;font-size:10px;font-weight:800;border:2px solid #ffb84d}
-.panel{display:none}.panel h3{font-family:'Oswald',sans-serif;font-size:22px;font-weight:500;margin-bottom:10px}.panel #pedido{color:var(--muted);line-height:1.7}.panel button{width:100%;margin-top:16px;border:0;border-radius:13px;padding:14px;background:linear-gradient(135deg,#ffbd5b,#ff7300);color:#17100a;font-weight:800;cursor:pointer}
-.hero{position:relative;min-height:calc(100vh - 82px);max-width:1320px;margin:auto;padding:75px 5vw 105px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:20px;isolation:isolate}.hero:before{content:"";position:absolute;inset:7% 2% 8%;z-index:-1;border-radius:45px;background:radial-gradient(circle at 28% 50%,rgba(255,122,0,.18),transparent 32%),linear-gradient(120deg,rgba(255,255,255,.035),transparent 55%);border:1px solid rgba(255,255,255,.035)}
-.hero-copy{padding-left:2vw}.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:22px;color:#e6d8c9;font-size:11px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase}.eyebrow:before{content:"";width:38px;height:2px;background:var(--orange);box-shadow:0 0 15px rgba(255,122,0,.6)}
-.hero h1{font-family:'Oswald',sans-serif;font-size:clamp(78px,9.3vw,148px);font-weight:700;line-height:.82;letter-spacing:-3px;text-transform:uppercase}.hero h1 span{display:block;color:var(--orange);font-size:1.08em;text-shadow:0 12px 35px rgba(255,122,0,.18)}.hero h1 span:after{content:"";display:block;width:190px;height:7px;margin-top:18px;background:linear-gradient(90deg,var(--orange),rgba(255,122,0,0));border-radius:99px;transform:skewX(-25deg)}
-.hero p{max-width:540px;margin-top:28px;color:#d1cbc3;font-size:16px;line-height:1.75}.hero-actions{display:flex;align-items:center;gap:16px;margin-top:30px}.hero .btn{border:0;border-radius:12px;padding:15px 24px;background:linear-gradient(135deg,#ffc15c,#f56d00);color:#170f08;font-weight:900;letter-spacing:.5px;text-transform:uppercase;box-shadow:0 18px 45px rgba(245,109,0,.22);cursor:pointer;transition:.3s}.hero .btn:hover{transform:translateY(-4px);box-shadow:0 24px 55px rgba(245,109,0,.3)}.hero-note{color:#9f9992;font-size:12px}
-.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:520px}.hero-visual:before{content:"";position:absolute;width:470px;height:470px;border-radius:50%;background:radial-gradient(circle,rgba(255,132,18,.25),rgba(255,132,18,.04) 48%,transparent 70%);filter:blur(8px)}.hero-visual:after{content:"";position:absolute;width:330px;height:80px;bottom:65px;border-radius:50%;background:rgba(0,0,0,.75);filter:blur(25px)}.hero img{position:relative;z-index:2;width:min(100%,610px);max-height:570px;object-fit:contain;filter:drop-shadow(0 35px 38px rgba(0,0,0,.72));animation:float 5s ease-in-out infinite}.premium-tag{position:absolute;z-index:4;right:3%;top:9%;padding:10px 14px;border:1px solid rgba(255,255,255,.12);border-radius:99px;background:rgba(10,10,10,.62);backdrop-filter:blur(12px);font-size:10px;font-weight:800;letter-spacing:2px;color:#f7d6a5;text-transform:uppercase}.premium-tag i{color:var(--gold);margin-right:6px}@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-11px) rotate(1deg)}}
-.about{position:relative;padding:100px 6vw;background:#090909;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}.section-kicker{font-size:10px;letter-spacing:4px;font-weight:800;color:var(--gold);text-transform:uppercase;margin-bottom:12px}.about h2{font-family:'Oswald',sans-serif;font-size:clamp(35px,5vw,60px);font-weight:600;text-transform:uppercase;letter-spacing:-1px}.about h2 .orange{color:var(--orange)}.about p{max-width:850px;margin:22px auto 0;color:#9f9992;font-size:15px;line-height:1.9}
-.menu{max-width:1320px;margin:auto;padding:90px 5vw 135px}.menu:before{content:"SELECCIÓN MOCHIS";display:block;text-align:center;color:var(--gold);font-size:10px;letter-spacing:4px;font-weight:800;margin-bottom:9px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}.card{position:relative;overflow:hidden;border-radius:22px;background:#111;border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.25);transition:.35s}.card:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.72) 100%);z-index:1}.card:hover{transform:translateY(-9px);border-color:rgba(255,154,49,.4);box-shadow:0 28px 70px rgba(0,0,0,.45)}.card img{display:block;width:100%;height:240px;object-fit:cover;transition:.45s}.card:hover img{transform:scale(1.06)}.card-body{position:relative;z-index:2;padding:19px}.card h3{font-family:'Oswald',sans-serif;font-size:20px;font-weight:500}.card p{margin:7px 0 14px;color:#ffbd5b;font-size:19px;font-weight:800}.card button{width:100%;padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.06);color:#fff;font-weight:800;cursor:pointer;transition:.25s}.card button:hover{background:linear-gradient(135deg,#ffb84d,#ff7300);color:#16100b;border-color:transparent}
-.mochis-cta-card{grid-column:1/-1;position:relative;overflow:hidden;min-height:270px;padding:38px 44px;display:flex;align-items:center;gap:30px;border:1px solid rgba(255,184,77,.22);border-radius:28px;background:linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.025)),radial-gradient(circle at 82% 30%,rgba(255,137,35,.18),transparent 34%),#101012;box-shadow:0 24px 70px rgba(0,0,0,.28)}
-.mochis-cta-card:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.035),transparent 70%);pointer-events:none}
-.cta-glow{position:absolute;width:230px;height:230px;right:-60px;top:-80px;border-radius:50%;background:rgba(255,122,0,.12);filter:blur(5px)}
-.cta-icon{position:relative;z-index:1;flex:0 0 86px;width:86px;height:86px;border-radius:24px;display:grid;place-items:center;background:linear-gradient(145deg,#ffbd5b,#ff6d00);box-shadow:0 16px 35px rgba(255,111,0,.25);color:#17100a;font-size:34px;transform:rotate(-3deg)}
-.cta-copy{position:relative;z-index:1;flex:1}.cta-kicker{font-size:10px;letter-spacing:3px;color:#ffbd5b;font-weight:900}.cta-copy h3{margin:8px 0 9px;font-family:'Oswald',sans-serif;font-size:35px;line-height:1.03;font-weight:500}.cta-copy h3 em{color:#ff9a31;font-style:normal}.cta-copy p{margin:0;max-width:600px;color:#aaa;font-size:13px;line-height:1.7}.cta-button{position:relative;z-index:1;flex:0 0 auto;border:0;border-radius:14px;padding:15px 21px;background:linear-gradient(135deg,#ffbf63,#ff7100);color:#17100a;font-weight:900;letter-spacing:.4px;cursor:pointer;box-shadow:0 12px 30px rgba(255,113,0,.2);transition:.25s}.cta-button i{margin-left:8px}.cta-button:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(255,113,0,.3)}
+:root{--bg:#080807;--bg2:#10100f;--cream:#fff8ec;--muted:#a7a097;--orange:#ff7200;--orange2:#ff9d2e;--gold:#ffc15c;--line:rgba(255,255,255,.09);--green:#71e3a0}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden}body:before{content:"";position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.84)),url("100.jpeg") center/cover no-repeat;transform:scale(1.03)}body:after{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 78% 20%,rgba(255,114,0,.13),transparent 28%),linear-gradient(180deg,transparent,#080807 78%);pointer-events:none}button,a{font:inherit}button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:1000;padding:13px 5vw;border-bottom:1px solid var(--line);background:rgba(8,8,7,.72);backdrop-filter:blur(22px)}.topbar-inner{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-family:Oswald,sans-serif;font-size:24px;font-weight:600;text-transform:uppercase}.brand b{color:var(--orange)}.status{display:flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid var(--line);border-radius:99px;background:rgba(255,255,255,.035);font-size:10px;font-weight:800;letter-spacing:.8px}.status-dot{width:7px;height:7px;border-radius:50%;background:#ff7166}.status.open .status-dot{background:var(--green);box-shadow:0 0 14px rgba(113,227,160,.4)}.status small{color:#777;font-weight:500;letter-spacing:0}
+.hero{max-width:1280px;min-height:calc(100svh - 65px);margin:auto;padding:70px 5vw 95px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:45px}.kicker{display:flex;align-items:center;gap:11px;color:#e9d8c4;font-size:10px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase}.kicker:before{content:"";width:36px;height:2px;background:var(--orange);box-shadow:0 0 18px rgba(255,114,0,.5)}h1{font-family:Oswald,sans-serif;font-size:clamp(78px,10vw,146px);line-height:.82;letter-spacing:-4px;text-transform:uppercase;margin-top:22px}h1 span{display:block;color:var(--orange);text-shadow:0 12px 40px rgba(255,114,0,.18)}.hero-text{max-width:560px;margin-top:27px;color:#c5bfb6;font-size:15px;line-height:1.8}.actions{display:flex;align-items:center;gap:15px;margin-top:29px}.primary{border:0;border-radius:13px;padding:15px 23px;background:linear-gradient(135deg,#ffc45f,#f56800);color:#171008;font-weight:900;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 18px 45px rgba(245,104,0,.22);transition:.25s}.primary:hover{transform:translateY(-3px)}.secondary{color:#aaa;text-decoration:none;font-size:12px;font-weight:700}.hero-side{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px}.glow{position:absolute;width:430px;height:430px;border-radius:50%;background:radial-gradient(circle,rgba(255,120,0,.22),rgba(255,120,0,.035) 48%,transparent 70%)}.showcase{position:relative;width:min(440px,100%);padding:39px;border-radius:32px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));box-shadow:0 30px 90px rgba(0,0,0,.55),inset 0 1px rgba(255,255,255,.08);backdrop-filter:blur(18px);overflow:hidden}.showcase:before{content:"";position:absolute;width:250px;height:250px;right:-100px;top:-100px;border-radius:50%;background:rgba(255,122,0,.13);filter:blur(5px)}.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border-radius:99px;background:rgba(255,255,255,.055);border:1px solid var(--line);color:#f4d19d;font-size:9px;font-weight:800;letter-spacing:1.7px}.badge i{color:var(--gold)}.show-icon{width:60px;height:60px;display:grid;place-items:center;border-radius:18px;margin:30px 0 22px;background:linear-gradient(135deg,#ffc05a,#ff6d00);color:#171008;font-size:24px;box-shadow:0 17px 38px rgba(255,109,0,.24)}.showcase h2{font-family:Oswald,sans-serif;font-size:49px;line-height:.95;letter-spacing:-1.8px}.showcase h2 em{font-style:normal;color:var(--orange2)}.showcase p{margin-top:17px;color:#aaa39b;font-size:13px;line-height:1.75}.info-row{display:flex;gap:9px;margin-top:27px;padding-top:19px;border-top:1px solid var(--line);font-size:10px;color:#777;letter-spacing:1px}.info-row i{color:var(--gold)}
+.section{border-top:1px solid var(--line);background:#090908}.about{max-width:1000px;margin:auto;text-align:center;padding:95px 25px}.label{color:var(--gold);font-size:9px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase}.about h2{font-family:Oswald,sans-serif;font-size:clamp(38px,5vw,62px);margin-top:10px;text-transform:uppercase}.about h2 span{color:var(--orange)}.about p{max-width:800px;margin:22px auto 0;color:#99928a;line-height:1.9;font-size:14px}.menu-section{max-width:1280px;margin:auto;padding:80px 5vw 135px}.section-head{text-align:center;margin-bottom:30px}.section-head h2{font-family:Oswald,sans-serif;font-size:42px;text-transform:uppercase;margin-top:7px}.section-head p{color:#817b74;font-size:12px;margin-top:6px}.feature{display:flex;align-items:center;gap:30px;overflow:hidden;padding:38px 42px;border-radius:28px;border:1px solid rgba(255,184,77,.2);background:radial-gradient(circle at 85% 35%,rgba(255,120,0,.14),transparent 35%),linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.02));box-shadow:0 25px 75px rgba(0,0,0,.3)}.feature-icon{flex:0 0 74px;width:74px;height:74px;display:grid;place-items:center;border-radius:22px;background:linear-gradient(145deg,#ffc25b,#ff6c00);color:#171008;font-size:29px}.feature-copy{flex:1}.feature-copy small{color:#ffbd5b;font-size:9px;font-weight:900;letter-spacing:2.5px}.feature-copy h3{font-family:Oswald,sans-serif;font-size:35px;font-weight:500;line-height:1;margin:7px 0 8px}.feature-copy h3 span{color:var(--orange2)}.feature-copy p{max-width:650px;color:#99928a;font-size:12px;line-height:1.7}.feature-btn{border:0;border-radius:13px;padding:14px 18px;background:linear-gradient(135deg,#ffc05b,#ff7000);color:#171008;font-weight:900;font-size:11px;white-space:nowrap}.footer{padding:55px 20px 120px;text-align:center;border-top:1px solid var(--line);background:#060605}.social{display:flex;justify-content:center;gap:9px;margin-bottom:20px}.social a{width:43px;height:43px;border:1px solid var(--line);border-radius:13px;background:#10100f;color:#aaa;display:grid;place-items:center;text-decoration:none}.copy{font-size:11px;color:#5f5b56}.copy b{color:var(--orange)}.bottom-nav{position:fixed;z-index:1200;left:50%;bottom:13px;transform:translateX(-50%);width:min(600px,calc(100% - 26px));height:70px;padding:6px;display:flex;border:1px solid rgba(255,255,255,.1);border-radius:22px;background:rgba(10,10,9,.9);box-shadow:0 22px 60px rgba(0,0,0,.58);backdrop-filter:blur(24px)}.nav-item{flex:1;border:0;border-radius:16px;background:transparent;color:#777;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:9px;font-weight:700}.nav-item i{font-size:17px}.nav-item.active{background:rgba(255,114,0,.1);color:#fff}.nav-item.active i{color:var(--orange)}.icon{position:relative}.badge-count{position:absolute;right:-11px;top:-7px;min-width:16px;height:16px;padding:0 4px;border-radius:99px;background:var(--gold);color:#171008;font-size:8px;display:grid;place-items:center;font-weight:900}.install{position:fixed;right:20px;bottom:100px;z-index:1250;display:none;border:1px solid var(--line);border-radius:13px;padding:11px 14px;background:rgba(10,10,9,.92);color:#fff;font-size:11px;font-weight:800}
+@media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center;padding-top:55px}.kicker{justify-content:center}.hero-text{margin-left:auto;margin-right:auto}.actions{justify-content:center}.hero-side{min-height:420px}.feature{padding:30px}}
+@media(max-width:620px){.topbar{padding:10px 13px}.brand{font-size:20px}.status{font-size:9px;padding:7px 9px}.status small{display:none}.hero{min-height:auto;padding:52px 16px 70px;gap:34px}.hero h1{font-size:clamp(55px,16.5vw,78px);letter-spacing:-2px}.hero-text{font-size:13px;line-height:1.7;margin-top:21px}.actions{flex-direction:column;margin-top:23px}.primary{width:100%;max-width:310px}.secondary{font-size:10px}.hero-side{min-height:0}.glow{width:300px;height:300px}.showcase{width:100%;padding:27px 23px;border-radius:25px;text-align:left}.show-icon{width:51px;height:51px;border-radius:15px;font-size:20px;margin:22px 0 18px}.showcase h2{font-size:39px}.showcase p{font-size:12px}.info-row{margin-top:20px;font-size:8px}.about{padding:70px 19px}.about h2{font-size:36px}.about p{font-size:12px;line-height:1.8}.menu-section{padding:60px 15px 110px}.section-head h2{font-size:36px}.feature{display:grid;grid-template-columns:auto 1fr;padding:22px 19px;gap:16px;border-radius:22px}.feature-icon{width:51px;height:51px;flex-basis:51px;border-radius:15px;font-size:20px}.feature-copy h3{font-size:28px}.feature-copy p{font-size:11px}.feature-btn{grid-column:1/-1;width:100%;padding:13px}.bottom-nav{left:8px;right:8px;transform:none;width:auto;bottom:7px;height:65px;border-radius:19px}.nav-item{height:53px;font-size:8px}.nav-item i{font-size:16px}.install{left:14px;right:14px;bottom:80px;text-align:center}.footer{padding-bottom:105px}}@media(max-width:370px){.brand{font-size:18px}.hero{padding-left:13px;padding-right:13px}.hero h1{font-size:48px}.showcase h2{font-size:34px}.nav-item{font-size:7px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
-.bottom-nav{position:fixed;z-index:999;left:50%;bottom:14px;transform:translateX(-50%);width:min(620px,calc(100% - 28px));height:72px;padding:7px;border:1px solid rgba(255,255,255,.11);border-radius:22px;background:rgba(10,10,10,.88);box-shadow:0 22px 60px rgba(0,0,0,.55);backdrop-filter:blur(25px);display:flex;align-items:center;justify-content:space-around}.nav-item{flex:1;height:58px;border:0;border-radius:16px;background:transparent;color:#777;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:10px;font-weight:700;cursor:pointer;transition:.25s}.nav-item i{font-size:18px}.nav-item:hover,.nav-item.active{color:#fff;background:rgba(255,122,0,.1)}.nav-item.active i{color:var(--orange)}.icon-wrapper{position:relative}.cart-badge{position:absolute;top:-7px;right:-12px;min-width:17px;height:17px;padding:0 4px;border-radius:99px;background:var(--gold);color:#17100a;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center}
-.footer{padding:65px 20px 125px;text-align:center;background:#060606;border-top:1px solid var(--line)}.footer-social{display:flex;justify-content:center;gap:10px;margin-bottom:24px}.footer-social a{width:44px;height:44px;border:1px solid var(--line);border-radius:13px;background:#0e0e0e;color:#aaa;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:.25s}.footer-social a:hover{color:var(--orange);border-color:rgba(255,122,0,.4);transform:translateY(-4px)}.footer-copy{font-size:12px;color:#666}.footer-copy span{color:var(--orange);font-weight:800}
-.install-btn{position:fixed;right:24px;bottom:103px;z-index:1100;display:none;padding:12px 16px;border:1px solid rgba(255,255,255,.13);border-radius:13px;background:rgba(12,12,12,.9);color:#fff;font-size:12px;font-weight:800;box-shadow:0 15px 40px rgba(0,0,0,.4);cursor:pointer;backdrop-filter:blur(15px)}
-@media(max-width:1000px){.hero{grid-template-columns:1fr;text-align:center;padding-top:70px}.hero-copy{padding-left:0;max-width:760px;margin:auto}.eyebrow{justify-content:center}.hero p{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.hero-visual{min-height:470px}.premium-tag{right:8%;top:5%}.cards{grid-template-columns:repeat(2,1fr)}}
-
-.horario-wrap{display:inline-flex;align-items:center;gap:10px;padding:9px 13px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.045);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.18);backdrop-filter:blur(14px);}
-.horario-dot{width:8px;height:8px;border-radius:50%;background:#ff8a00;box-shadow:0 0 0 5px rgba(255,138,0,.10),0 0 16px rgba(255,138,0,.35);flex:none}
-.horario-text{display:flex;flex-direction:column;gap:1px;text-align:left}
-.horario-text strong{font-size:11px;letter-spacing:.3px;color:#f6f2eb}
-.horario-text small{font-size:8px;letter-spacing:.45px;color:rgba(255,255,255,.50)}
-.horario-wrap.abierto .horario-dot{background:#6ee7a0;box-shadow:0 0 0 5px rgba(110,231,160,.10),0 0 16px rgba(110,231,160,.45)}
-.horario-wrap.cerrado .horario-dot{background:#ff766a;box-shadow:0 0 0 5px rgba(255,118,106,.10),0 0 16px rgba(255,118,106,.35)}
-
-/* HERO PREMIUM SIN IMAGEN */
-.hero-feature{
-  min-height:500px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
+/* PREMIUM V3 */
+body{background:#070706}
+.topbar{padding:11px 4vw;background:rgba(7,7,6,.82)}
+.topbar-inner{max-width:1380px}
+.brand{font-size:25px;letter-spacing:.2px}.brand:first-letter{font-size:23px}
+.status{box-shadow:inset 0 1px rgba(255,255,255,.04),0 8px 30px rgba(0,0,0,.18)}
+.hero{max-width:1380px;min-height:calc(100svh - 60px);padding:60px 4vw 90px;gap:65px}
+.hero-copy{position:relative;z-index:2}
+.kicker{font-size:10px;letter-spacing:4px;color:#f0d8bd}
+h1{font-size:clamp(76px,9.2vw,142px);letter-spacing:-5px;text-shadow:0 15px 55px rgba(0,0,0,.38)}
+h1 span{background:linear-gradient(90deg,#ff6500,#ffad3e 65%,#ffd37d);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none}
+.hero-text{font-size:15.5px;max-width:590px;color:#d0c8bd}
+.actions{margin-top:31px}.primary{padding:16px 24px;border-radius:15px;box-shadow:0 18px 50px rgba(255,100,0,.2)}
+.secondary{padding:12px 3px;color:#d2cbc2}.secondary:hover{color:#fff}
+.hero-side{min-height:535px}.glow{width:500px;height:500px;background:radial-gradient(circle,rgba(255,121,0,.25),rgba(255,121,0,.05) 48%,transparent 70%)}
+.showcase{width:min(465px,100%);padding:34px;border-radius:34px;background:linear-gradient(150deg,rgba(31,28,24,.88),rgba(10,10,9,.78));border-color:rgba(255,190,91,.2);box-shadow:0 35px 100px rgba(0,0,0,.65),inset 0 1px rgba(255,255,255,.1);transform:rotate(1deg);transition:.35s}
+.showcase:hover{transform:rotate(0) translateY(-5px)}
+.showcase:after{content:"";position:absolute;inset:auto -35px -55px auto;width:180px;height:180px;border-radius:50%;background:rgba(255,130,20,.11);filter:blur(25px)}
+.show-icon{width:66px;height:66px;border-radius:20px;margin:26px 0 20px;box-shadow:0 20px 45px rgba(255,109,0,.28)}
+.showcase h2{font-size:54px}.showcase p{font-size:13px;color:#b4aca3;max-width:360px}.info-row{color:#8b837a}
+.section{background:linear-gradient(180deg,#090908,#080807)}
+.about{max-width:1120px;padding:110px 25px}.about h2{font-size:clamp(42px,5vw,68px);letter-spacing:-1px}.about p{max-width:760px;color:#aaa29a;font-size:14.5px}
+.menu-section{max-width:1380px;padding:95px 4vw 155px}.section-head{margin-bottom:35px}.section-head h2{font-size:48px}.section-head p{font-size:13px}
+.feature{position:relative;padding:40px 45px;border-radius:30px;background:linear-gradient(120deg,rgba(255,255,255,.075),rgba(255,255,255,.018));border-color:rgba(255,180,75,.22)}
+.feature:before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,rgba(255,122,0,.07),transparent 75%);pointer-events:none}
+.feature-icon{width:80px;height:80px;flex-basis:80px;border-radius:24px;box-shadow:0 20px 45px rgba(255,108,0,.2)}
+.feature-copy h3{font-size:38px}.feature-copy p{font-size:13px;max-width:700px}.feature-btn{padding:15px 20px;border-radius:14px;box-shadow:0 12px 30px rgba(255,110,0,.16);transition:.25s}.feature-btn:hover{transform:translateY(-2px)}
+.footer{padding:65px 20px 125px}.social a{transition:.2s}.social a:hover{transform:translateY(-3px);color:#fff;border-color:rgba(255,160,50,.35)}
+.bottom-nav{width:min(620px,calc(100% - 28px));height:72px;background:rgba(12,12,11,.92);border-color:rgba(255,255,255,.13)}.nav-item{font-size:9px}.nav-item.active{background:linear-gradient(180deg,rgba(255,114,0,.14),rgba(255,114,0,.055))}
+@media(max-width:900px){.hero{gap:45px}.hero-side{min-height:470px}}
+@media(max-width:620px){
+ body:after{background:radial-gradient(circle at 50% 20%,rgba(255,114,0,.12),transparent 34%),linear-gradient(180deg,transparent 0%,#080807 68%)}
+ .topbar{padding:10px 12px}.brand{font-size:19px}.status{padding:7px 10px}
+ .hero{padding:45px 15px 68px;gap:30px}.kicker{font-size:8px;letter-spacing:2.7px}.hero h1{font-size:clamp(54px,16vw,76px);line-height:.84;letter-spacing:-2.5px;margin-top:18px}.hero-text{font-size:12.5px;line-height:1.75;max-width:370px}
+ .actions{gap:11px}.primary{max-width:340px;padding:15px 20px}.secondary{font-size:10px}
+ .hero-side{min-height:0;padding:0 3px}.glow{width:290px;height:290px}.showcase{padding:25px 21px;border-radius:25px;transform:none}.showcase h2{font-size:40px}.showcase p{font-size:11.5px;line-height:1.7}.show-icon{width:54px;height:54px;border-radius:16px;margin:21px 0 17px}.badge{font-size:8px;letter-spacing:1.3px}.info-row{font-size:8px}
+ .about{padding:75px 18px}.label{font-size:8px;letter-spacing:2.8px}.about h2{font-size:37px;line-height:1}.about p{font-size:12px;margin-top:18px}
+ .menu-section{padding:65px 14px 115px}.section-head{margin-bottom:24px}.section-head h2{font-size:38px}.section-head p{font-size:11px}.feature{display:grid;grid-template-columns:56px 1fr;padding:22px 18px;gap:14px;border-radius:23px}.feature-icon{width:56px;height:56px;flex-basis:56px;border-radius:17px;font-size:21px}.feature-copy h3{font-size:28px;line-height:1.02}.feature-copy p{font-size:10.5px;line-height:1.65;margin-top:5px}.feature-btn{grid-column:1/-1;width:100%;font-size:10px}
+ .footer{padding-bottom:110px}.social a{width:41px;height:41px}.bottom-nav{left:7px;right:7px;width:auto;bottom:6px;height:64px;padding:5px;border-radius:19px}.nav-item{height:52px;border-radius:14px;gap:3px}.nav-item i{font-size:15px}.badge-count{right:-10px;top:-6px}
+ .install{left:12px;right:12px;bottom:78px;border-radius:14px}
 }
-.feature-card{
-  width:min(420px,100%);
-  min-height:390px;
-  padding:42px 38px;
-  border-radius:32px;
-  background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.025));
-  border:1px solid rgba(255,255,255,.13);
-  box-shadow:0 35px 90px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08);
-  backdrop-filter:blur(18px);
-  position:relative;
-  overflow:hidden;
-}
-.feature-card:before{
-  content:""; position:absolute; width:220px; height:220px; border-radius:50%;
-  right:-90px; top:-90px; background:rgba(255,128,0,.14); filter:blur(8px);
-}
-.feature-icon{
-  width:58px;height:58px;border-radius:18px;display:grid;place-items:center;
-  background:linear-gradient(135deg,#ffb52e,#ff6a00); color:#111;
-  font-size:22px; box-shadow:0 14px 35px rgba(255,106,0,.25);
-  margin-bottom:30px;
-}
-.feature-label{font-size:10px;letter-spacing:3px;font-weight:800;color:#ffb52e}
-.feature-card h2{font-size:48px;line-height:.95;margin:12px 0 18px;letter-spacing:-2px}
-.feature-card h2 em{font-style:normal;color:#ff9a21}
-.feature-card p{color:#bcbcbc;line-height:1.75;font-size:14px;max-width:310px}
-.feature-line{display:flex;align-items:center;gap:12px;margin-top:32px}
-.feature-line span{width:45px;height:2px;background:#ff8a00;border-radius:10px}
-.feature-line small{color:#777;letter-spacing:1.5px;font-size:8px}
-
-@media(max-width:650px){body:before{background-attachment:scroll;background-position:center top}header{padding:12px 15px}header>div{flex-direction:column;gap:7px}.logo{font-size:21px}.estado-local{font-size:9px;padding:6px 10px}.hero{min-height:auto;padding:56px 18px 78px;gap:0}.hero:before{inset:4% 0 4%;border-radius:30px}.eyebrow{font-size:9px;letter-spacing:2.7px;margin-bottom:18px}.hero h1{font-size:clamp(65px,19vw,92px);letter-spacing:-1.5px}.hero h1 span:after{width:125px;height:5px;margin:12px auto 0}.hero p{font-size:14px;margin-top:22px;line-height:1.65}.hero-actions{flex-direction:column;gap:11px;margin-top:25px}.hero .btn{width:100%;max-width:320px;padding:14px}.hero-note{font-size:11px}.hero-visual{min-height:330px;margin-top:5px}.hero-feature{min-height:360px;margin-top:8px}.feature-card{min-height:330px;padding:30px 25px;border-radius:26px}.feature-card h2{font-size:40px}.feature-card p{font-size:13px}.feature-icon{width:52px;height:52px;margin-bottom:22px}.hero-visual:before{width:310px;height:310px}.hero-visual:after{width:230px;bottom:35px}.premium-tag{top:3%;right:4%;font-size:8px;padding:8px 10px}.about{padding:75px 20px}.about h2{font-size:35px}.about p{font-size:13px;line-height:1.85}.menu{padding:70px 15px 120px}.cards{grid-template-columns:1fr;gap:15px}.card img{height:235px}.card-body{padding:17px}.bottom-nav{bottom:8px;width:calc(100% - 16px);height:66px;border-radius:20px}.nav-item{height:52px;font-size:9px}.nav-item i{font-size:17px}.install-btn{right:14px;bottom:84px;font-size:11px;padding:10px 12px}.footer{padding-bottom:100px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-.hero-visual > img{display:none!important;}
-
-/* AJUSTE FINAL RESPONSIVE — MOCHIS */
-@media (max-width: 650px){
-  body{overflow-x:hidden}
-  header{padding:11px 14px}
-  header>div{gap:10px}
-  .logo{font-size:20px;letter-spacing:0}
-  .estado-local{font-size:9px;padding:6px 9px}
-
-  .hero{min-height:auto;padding:48px 16px 55px;display:flex;flex-direction:column;gap:30px}
-  .hero:before{inset:3% 0 2%;border-radius:28px}
-  .hero-copy{width:100%;padding:0;text-align:center}
-  .eyebrow{justify-content:center;font-size:9px;letter-spacing:2.3px;margin-bottom:17px;gap:8px}
-  .eyebrow:before{width:25px}
-  .hero h1{font-size:clamp(50px,15vw,76px);line-height:.86;letter-spacing:-1.8px}
-  .hero h1 span:after{width:105px;height:4px;margin:12px auto 0}
-  .hero p{margin:22px auto 0;max-width:340px;font-size:13px;line-height:1.65}
-  .hero-actions{justify-content:center;flex-wrap:wrap;margin-top:22px;gap:10px}
-  .hero .btn{width:100%;max-width:310px;padding:14px 18px;font-size:13px}
-  .hero-note{font-size:10px}
-
-  .hero-visual{width:100%;min-height:0;padding:0 2px}
-  .premium-tag{right:8px;top:-10px;font-size:8px}
-  .feature-card{width:100%;min-height:0;padding:27px 22px 25px;border-radius:24px;text-align:left}
-  .feature-icon{width:50px;height:50px;border-radius:15px;font-size:20px;margin-bottom:20px}
-  .feature-label{font-size:8px;letter-spacing:2.1px}
-  .feature-card h2{font-size:clamp(30px,9vw,40px);line-height:.98;letter-spacing:-1px;margin:9px 0 12px}
-  .feature-card p{font-size:12px;line-height:1.65;max-width:none}
-  .feature-line{margin-top:20px;gap:8px}
-  .feature-line span{width:30px!important;height:2px!important}
-  .feature-line small{font-size:7px;letter-spacing:1px}
-
-  .menu{padding:55px 15px 105px}
-  .menu:before{font-size:8px;letter-spacing:3px;margin-bottom:8px}
-  .cards{display:block}
-  .cards>*{margin-bottom:15px}
-  .mochis-cta-card{width:100%;min-height:0;padding:25px 19px;display:flex;flex-direction:column;align-items:flex-start;gap:17px;border-radius:23px;text-align:left}
-  .cta-glow{width:170px;height:170px;right:-70px;top:-70px}
-  .cta-icon{width:52px;height:52px;flex:0 0 52px;border-radius:15px;font-size:21px}
-  .cta-copy{width:100%}
-  .cta-kicker{font-size:8px;letter-spacing:2.2px}
-  .cta-copy h3{font-size:29px;line-height:1.02;margin:7px 0 9px}
-  .cta-copy p{font-size:12px;line-height:1.6}
-  .cta-button{width:100%;padding:14px 16px;min-height:48px;border-radius:13px;font-size:12px;display:flex;align-items:center;justify-content:center;gap:4px}
-  .cta-button i{margin-left:6px}
-
-  .bottom-nav{left:10px;right:10px;transform:none;width:auto;height:66px;bottom:7px;padding:5px;border-radius:19px}
-  .nav-item{height:54px;min-width:0;padding:0 2px;gap:3px;border-radius:14px;font-size:9px;line-height:1}
-  .nav-item i{font-size:17px}
-  .icon-wrapper{height:19px;display:flex;align-items:center}
-  .cart-badge{top:-7px;right:-10px;min-width:16px;height:16px;font-size:8px}
-  .footer{padding:48px 15px 100px}
-  .footer-copy{font-size:10px;line-height:1.5}
-  .install-btn{left:15px;right:15px;bottom:82px;text-align:center}
-}
-@media (max-width:380px){
-  .hero{padding-left:13px;padding-right:13px}
-  .hero h1{font-size:48px}
-  .feature-card{padding:24px 18px}
-  .feature-card h2{font-size:31px}
-  .mochis-cta-card{padding:22px 17px}
-  .cta-copy h3{font-size:26px}
-  .cta-button{min-height:46px}
-  .bottom-nav{left:6px;right:6px}
-  .nav-item{font-size:8px}
-  .nav-item i{font-size:15px}
-}
-</style>
-<body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMXWN6KB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<header>
-<div>
-<div class="logo">🍔 Mochis Burguers</div>
-
-<div class="horario-wrap">
-  <span class="horario-dot" aria-hidden="true"></span>
-  <div class="horario-text">
-    <strong id="estadoLocal">CERRADO</strong>
-    <small>Viernes a Domingo · 5:30 PM — 10:30 PM</small>
-  </div>
-</div>
-
-</div>
-</header>
-<div class="panel" id="panel">
-<h3>Mi Pedido</h3>
-<div id="pedido"></div>
-<h3>Total: $<span id="total">0</span></h3>
-<button onclick="confirmar()">Confirmar</button>
-</div>
-
-<section class="hero">
-  <div class="hero-copy">
-    <div class="eyebrow">Mochis Burguers · Somoto</div>
-    <h1>EL SABOR<span>MAS BRUTAL</span></h1>
-    <p>Hamburguesas hechas para antojos serios. Ingredientes frescos, sabor intenso y una experiencia que se siente desde el primer bocado.</p>
-    <div class="hero-actions">
-      <button class="btn" onclick="location.href='menu.html'">Ver menú <i class="fa-solid fa-arrow-right"></i></button>
-      <span class="hero-note">Hecho al momento · Sabor que se recuerda</span>
-    </div>
-  </div>
-  <div class="hero-visual hero-feature">
-    <div class="premium-tag"><i class="fa-solid fa-star"></i> Experiencia Mochis</div>
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
-      <span class="feature-label">HECHO AL MOMENTO</span>
-      <h2>Sabor que<br><em>se queda.</em></h2>
-      <p>Ingredientes frescos, preparación al instante y ese toque especial que hace diferente cada pedido.</p>
-      <div class="feature-line"><span></span><small>MOCHIS BURGUERS · SOMOTO</small></div>
-    </div>
-  </div>
-</section>
-<button id="installBtn" onclick="installApp()" class="install-btn">
-  📲 Instalar App
-</button>
-<section class="about">
-<div class="section-kicker">Una experiencia diferente</div>
-<h2>Acerca de <span class="orange">Mochi Burguers</span></h2>
-<p>
-En Mochi Burgers creemos que una gran hamburguesa no solo alimenta, crea momentos inolvidables. Cada pedido se prepara al instante con carne 100% de calidad, ingredientes frescos, pan suave y sabores que conquistan desde el primer bocado. Nuestra pasión es ofrecer una experiencia única en cada hamburguesa, hecha con dedicación y el auténtico sabor que nos distingue. 
-</p>
-</section>
-<section class="menu">
-<div class="cards" id="cards"></div>
-</section>
-
-<nav class="bottom-nav">
-
-<button class="nav-item" onclick="location.href='index.html'">
-<i class="fa-solid fa-house"></i>
-<span>Inicio</span>
-</button>
-
-<button class="nav-item active" onclick="location.href='menu.html'">
-<i class="fa-solid fa-burger"></i>
-<span>Menú</span>
-</button>
-
-<button class="nav-item" onclick="location.href='pedidos.html'">
-<div class="icon-wrapper">
-<i class="fa-solid fa-box"></i>
-<span class="cart-badge" id="cartCount">0</span>
-</div>
-<span>Pedidos</span>
-</button>
-
-<button class="nav-item" onclick="location.href='promos.html'">
-<i class="fa-solid fa-tags"></i>
-<span>Promos</span>
-</button>
-
-</nav>
-<footer class="footer">
-
-  
-
-    <div class="footer-social">
-
-        <a href="https://www.facebook.com/TU_USUARIO"
-           target="_blank">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-
-        <a href="https://www.instagram.com/m0ch1s_26?stkn=MTZoOWY1Nm5iaHd5Mg=="
-           target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-
-        <a href="https://www.tiktok.com/@TU_USUARIO"
-           target="_blank">
-            <i class="fab fa-tiktok"></i>
-        </a>
-
-        <a href="https://wa.me/50583606001"
-           target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-
-    </div>
-
-    <div class="footer-copy">
-        © 2026 <span>MochiS Burgers</span>. Todos los derechos reservados.
-       
-    </div>
-
-</footer>
-<script>const productos=[];
-
-/* 🔥 SIEMPRE SINCRONIZADO */
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-function render(){
-const cards = document.getElementById("cards");
-if(!cards) return;
-cards.innerHTML = `
-<div class="mochis-cta-card">
-  <div class="cta-glow"></div>
-  <div class="cta-icon"><i class="fa-solid fa-burger"></i></div>
-  <div class="cta-copy">
-    <span class="cta-kicker">EXPERIENCIA MOCHIS</span>
-    <h3>Tu próximo antojo<br><em>empieza aquí.</em></h3>
-    <p>Descubre todo nuestro menú, elige tus favoritos y disfruta el sabor de Mochis Burgers.</p>
-  </div>
-  <button class="cta-button" onclick="location.href='menu.html'">
-    VER MENÚ <i class="fa-solid fa-arrow-right"></i>
-  </button>
-</div>`;
-updateCount();
-}
-
-/* 🔥 AGREGAR PRODUCTO */
-function agregar(i){
-
-let producto = productos[i];
-
-/* refrescar carrito siempre */
-carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-/* buscar si existe */
-let index = carrito.findIndex(p => p.nombre === producto.nombre);
-
-if(index !== -1){
-carrito[index].qty += 1;
-} else {
-carrito.push({
-nombre: producto.nombre,
-precio: producto.precio,
-img: producto.img,
-qty: 1
-});
-}
-
-/* guardar */
-localStorage.setItem("carrito", JSON.stringify(carrito));
-
-updateCount();
-renderCartPanel();
-mostrarToast("✔ Agregado al carrito");
-}
-
-/* 🔥 CONTADOR CORREGIDO (SUMA REAL DE PRODUCTOS) */
-function updateCount(){
-
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-let totalItems = 0;
-
-carrito.forEach(p=>{
-totalItems += p.qty || 1;
-});
-
-/* contador principal */
-document.getElementById("count").innerText = totalItems;
-
-/* badge del nav si existe */
-let nav = document.getElementById("cartCount");
-if(nav){
-nav.innerText = totalItems;
-}
-}
-
-/* TOAST */
-function mostrarToast(msg){
-let toast=document.createElement("div");
-toast.innerText=msg;
-
-toast.style.position="fixed";
-toast.style.bottom="20px";
-toast.style.right="20px";
-toast.style.background="#ff9800";
-toast.style.color="#000";
-toast.style.padding="10px 14px";
-toast.style.borderRadius="10px";
-toast.style.fontWeight="bold";
-toast.style.zIndex="9999";
-
-document.body.appendChild(toast);
-
-setTimeout(()=>toast.remove(),1500);
-}
-
-/* PANEL */
-function toggleCart(){
-  let p=document.getElementById("panel");
-  p.style.display = p.style.display === "block" ? "none" : "block";
-  renderCartPanel();
-}
-function renderCartPanel(){
-  const list=document.getElementById("pedido");
-  const totalEl=document.getElementById("total");
-  const data=JSON.parse(localStorage.getItem("carrito")) || [];
-  if(!data.length){ list.innerHTML='<p>Tu pedido está vacío.</p>'; totalEl.innerText='0'; return; }
-  let total=0;
-  list.innerHTML=data.map(p=>{ const qty=p.qty||1; total+=p.precio*qty; return `<div style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07)"><span>${qty}× ${p.nombre}</span><strong>C$${p.precio*qty}</strong></div>`; }).join('');
-  totalEl.innerText=total;
-}
-
-/* LIMPIAR */
-function confirmar(){
-alert("Pedido confirmado 🍔");
-
-carrito = [];
-localStorage.removeItem("carrito");
-
-updateCount();
-}
-
-render();
-updateCount();
-function actualizarHorario() {
-  const estado = document.getElementById("estadoLocal");
-  const wrap = document.querySelector(".horario-wrap");
-  if (!estado || !wrap) return;
-
-  // Horario de Mochis Burguers: viernes, sábado y domingo, 5:30 PM a 10:30 PM.
-  // Se calcula usando la zona horaria de Nicaragua para evitar diferencias entre dispositivos.
-  const ahora = new Date();
-  const partes = new Intl.DateTimeFormat("en-US", {
-    timeZone: "America/Managua",
-    weekday: "short",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false
-  }).formatToParts(ahora);
-
-  const datos = {};
-  partes.forEach(p => datos[p.type] = p.value);
-
-  const dia = datos.weekday;
-  const minutos = Number(datos.hour) * 60 + Number(datos.minute);
-  const apertura = 17 * 60 + 30;
-  const cierre = 22 * 60 + 30;
-  const diaAbierto = dia === "Fri" || dia === "Sat" || dia === "Sun";
-  const abierto = diaAbierto && minutos >= apertura && minutos < cierre;
-
-  wrap.classList.remove("abierto", "cerrado");
-  wrap.classList.add(abierto ? "abierto" : "cerrado");
-  estado.textContent = abierto ? "ABIERTO" : "CERRADO";
-  estado.setAttribute("aria-label", abierto ? "Local abierto" : "Local cerrado");
-}
-
-function iniciarHorario() {
-  actualizarHorario();
-  setInterval(actualizarHorario, 60000);
-}
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", iniciarHorario, { once: true });
-} else {
-  iniciarHorario();
-}
-
-let deferredPrompt;
-
-// =========================
-// SERVICE WORKER
-// =========================
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/service-worker.js")
-      .then((reg) => {
-        console.log("SW registrado");
-
-        // Detectar actualizaciones
-        reg.addEventListener("updatefound", () => {
-          const newWorker = reg.installing;
-
-          if (!newWorker) return;
-
-          newWorker.addEventListener("statechange", () => {
-            if (
-              newWorker.state === "installed" &&
-              navigator.serviceWorker.controller
-            ) {
-              console.log("Nueva versión disponible");
-              showUpdateButton(reg);
-            }
-          });
-        });
-      })
-      .catch(err => console.log("Error SW:", err));
-  });
-}
-
-// =========================
-// RELOAD AUTOMÁTICO CUANDO CAMBIA SW
-// =========================
-navigator.serviceWorker?.addEventListener("controllerchange", () => {
-  window.location.reload();
-});
-
-// =========================
-// BOTÓN INSTALAR APP
-// =========================
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-
-  const btn = document.getElementById("installBtn");
-  if (btn) btn.style.display = "block";
-});
-
-// =========================
-// INSTALAR APP
-// =========================
-function installApp() {
-  if (!deferredPrompt) return;
-
-  deferredPrompt.prompt();
-
-  deferredPrompt.userChoice.then((choiceResult) => {
-    if (choiceResult.outcome === "accepted") {
-      console.log("App instalada");
-    }
-    deferredPrompt = null;
-  });
-}
-
-// =========================
-// BOTÓN ACTUALIZAR APP
-// =========================
-function showUpdateButton(reg) {
-  let updateBtn = document.getElementById("updateBtn");
-
-  if (!updateBtn) {
-    updateBtn = document.createElement("button");
-    updateBtn.id = "updateBtn";
-    updateBtn.innerText = "Actualizar App";
-
-    Object.assign(updateBtn.style, {
-      position: "fixed",
-      bottom: "100px",
-      right: "20px",
-      zIndex: "9999",
-      padding: "12px 16px",
-      background: "#ff6b00",
-      color: "#fff",
-      border: "none",
-      borderRadius: "10px",
-      cursor: "pointer"
-    });
-
-    document.body.appendChild(updateBtn);
-  }
-
-  updateBtn.style.display = "block";
-
-  updateBtn.onclick = async () => {
-    const waitingSW = reg.waiting;
-
-    // Si no hay SW esperando, recarga normal
-    if (!waitingSW) {
-      console.log("No hay SW en waiting → recargando");
-      window.location.reload();
-      return;
-    }
-
-    // enviar mensaje al SW
-    waitingSW.postMessage({ type: "SKIP_WAITING" });
-  };
-}
-</script>
-
-</body>
-</html>
+@media(max-width:360px){.brand{font-size:17px}.status{font-size:8px}.hero h1{font-size:47px}.showcase h2{font-size:35px}.feature-copy h3{font-size:25px}.nav-item{font-size:7px}}
+
+/* --- BLOQUE PREMIUM V3 --- */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(255,193,92,.18);border-radius:999px;background:rgba(255,150,35,.055);color:#e9c48b;font-size:9px;font-weight:900;letter-spacing:2px}
+.eyebrow i{color:var(--orange)}
+.scroll-cue{display:flex;align-items:center;gap:10px;margin-top:34px;color:#706b65;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.scroll-cue span{width:30px;height:1px;background:#4b4742}
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0b0b0a}.marquee-track{width:max-content;display:flex;gap:42px;padding:14px 0;animation:marquee 24s linear infinite}.marquee-item{font-family:Oswald,sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#bcb3a8;white-space:nowrap}.marquee-item b{color:var(--orange)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.why{max-width:1280px;margin:auto;padding:100px 5vw}.why-head{text-align:center;max-width:720px;margin:0 auto 42px}.why-head h2{font-family:Oswald,sans-serif;font-size:clamp(40px,5vw,62px);text-transform:uppercase;line-height:.95;margin-top:9px}.why-head h2 span{color:var(--orange)}.why-head p{color:#969087;font-size:13px;line-height:1.8;margin-top:16px}.reason-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.reason{position:relative;padding:28px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));overflow:hidden;transition:.3s}.reason:hover{transform:translateY(-5px);border-color:rgba(255,153,55,.25);box-shadow:0 20px 55px rgba(0,0,0,.3)}.reason:after{content:"";position:absolute;width:120px;height:120px;right:-65px;bottom:-65px;border-radius:50%;background:rgba(255,114,0,.08)}.reason-icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:rgba(255,114,0,.1);color:var(--orange2);font-size:19px;margin-bottom:23px}.reason h3{font-family:Oswald,sans-serif;font-size:25px;text-transform:uppercase}.reason p{margin-top:8px;color:#888179;font-size:11px;line-height:1.75}
+.steps{max-width:1280px;margin:auto;padding:0 5vw 100px}.steps-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.steps-card,.hours-card{border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.012));padding:35px}.steps-card h2,.hours-card h2{font-family:Oswald,sans-serif;text-transform:uppercase;font-size:38px;line-height:1}.steps-card h2 span,.hours-card h2 span{color:var(--orange)}.steps-list{display:grid;gap:17px;margin-top:27px}.step{display:flex;align-items:center;gap:15px}.step-num{flex:0 0 39px;width:39px;height:39px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#ffc25b,#ff7000);color:#161009;font-weight:900;font-size:11px}.step strong{font-family:Oswald,sans-serif;font-size:19px;text-transform:uppercase}.step small{display:block;color:#77716a;font-size:10px;margin-top:2px}.hours-card{background:radial-gradient(circle at 90% 10%,rgba(255,115,0,.13),transparent 45%),linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.012))}.hours-card p{color:#888179;font-size:11px;line-height:1.7;margin-top:12px}.hours-row{display:flex;justify-content:space-between;align-items:center;margin-top:25px;padding:15px 0;border-bottom:1px solid var(--line);font-size:11px}.hours-row:last-child{border-bottom:0}.hours-row b{color:#eee5d8}.hours-row span{color:var(--gold);font-weight:800}
+.final-cta{max-width:1280px;margin:auto;padding:0 5vw 105px}.cta-box{position:relative;overflow:hidden;text-align:center;padding:65px 25px;border-radius:32px;border:1px solid rgba(255,180,75,.2);background:radial-gradient(circle at 50% 0,rgba(255,120,0,.2),transparent 42%),linear-gradient(145deg,#17130f,#0c0c0b);box-shadow:0 30px 80px rgba(0,0,0,.35)}.cta-box:before,.cta-box:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,180,75,.09)}.cta-box:before{width:280px;height:280px;left:-180px;top:-170px}.cta-box:after{width:360px;height:360px;right:-240px;bottom:-260px}.cta-box>*{position:relative;z-index:1}.cta-box h2{font-family:Oswald,sans-serif;font-size:clamp(42px,6vw,70px);line-height:.9;text-transform:uppercase}.cta-box h2 span{color:var(--orange)}.cta-box p{max-width:570px;margin:16px auto 25px;color:#a69d92;font-size:12px;line-height:1.8}.cta-box .primary{display:inline-flex;align-items:center;gap:9px;text-decoration:none}
+.reveal{animation:rise .8s both}.hero-copy .reveal:nth-child(2){animation-delay:.08s}.hero-copy .reveal:nth-child(3){animation-delay:.15s}.hero-copy .reveal:nth-child(4){animation-delay:.22s}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.reason-grid{grid-template-columns:1fr 1fr}.steps-wrap{grid-template-columns:1fr}}
+@media(max-width:620px){.marquee-track{gap:28px;padding:12px 0}.marquee-item{font-size:11px}.why{padding:72px 15px}.why-head{margin-bottom:28px}.why-head p{font-size:11px}.reason-grid{grid-template-columns:1fr;gap:10px}.reason{padding:23px}.reason-icon{margin-bottom:16px}.reason h3{font-size:23px}.steps{padding:0 15px 72px}.steps-card,.hours-card{padding:25px 21px;border-radius:23px}.steps-card h2,.hours-card h2{font-size:33px}.step strong{font-size:17px}.final-cta{padding:0 15px 85px}.cta-box{padding:50px 20px;border-radius:25px}.cta-box p{font-size:11px}}
+
+</style></head><body>
+<header class="topbar"><div class="topbar-inner"><div class="brand">🍔 <b>Mochis</b> Burguers</div><div class="status" id="status"><span class="status-dot"></span><strong id="statusText">CERRADO</strong><small>Vie–Dom · 5:30–10:30 PM</small></div></div></header>
+<main>
+<section class="hero"><div class="hero-copy"><div class="kicker">Mochis Burguers · Somoto</div><div style="margin-top:16px"><span class="eyebrow"><i class="fa-solid fa-fire"></i> HECHO AL MOMENTO</span></div><h1>EL SABOR<span>MAS BRUTAL</span></h1><p class="hero-text">Hamburguesas hechas para antojos serios. Ingredientes frescos, preparación al momento y ese sabor que se queda en la memoria.</p><div class="actions"><button class="primary" onclick="location.href='menu.html'">Ver menú <i class="fa-solid fa-arrow-right"></i></button><a class="secondary" href="#historia">Conocé Mochis ↓</a></div></div><div class="hero-side"><div class="glow"></div><article class="showcase"><span class="badge"><i class="fa-solid fa-star"></i> EXPERIENCIA MOCHIS</span><div class="show-icon"><i class="fa-solid fa-fire-flame-curved"></i></div><h2>Sabor que<br><em>se queda.</em></h2><p>Pan suave, ingredientes frescos y preparación al instante. Todo pensado para que cada pedido se sienta especial.</p><div class="info-row"><i class="fa-solid fa-location-dot"></i> SOMOTO · NICARAGUA</div></article></div></section>
+<section class="section" id="historia"><div class="about"><div class="label">Una experiencia diferente</div><h2>Acerca de <span>Mochis Burguers</span></h2><p>En Mochis Burguers creemos que una gran hamburguesa no solo alimenta: crea momentos. Cada pedido se prepara al instante con ingredientes frescos, pan suave y sabores pensados para conquistar desde el primer bocado.</p></div></section>
+<section class="section"><div class="why"><div class="why-head"><div class="label">La diferencia está en cada detalle</div><h2>¿Por qué <span>Mochis?</span></h2><p>Una experiencia sencilla, directa y hecha para que el protagonista sea el sabor.</p></div><div class="reason-grid"><article class="reason"><div class="reason-icon"><i class="fa-solid fa-fire-flame-curved"></i></div><h3>Hecho al momento</h3><p>Cada pedido se prepara para vos, buscando que llegue fresco y con la mejor experiencia posible.</p></article><article class="reason"><div class="reason-icon"><i class="fa-solid fa-leaf"></i></div><h3>Ingredientes frescos</h3><p>Combinaciones pensadas para disfrutar una hamburguesa completa, sabrosa y memorable.</p></article><article class="reason"><div class="reason-icon"><i class="fa-solid fa-heart"></i></div><h3>Hecho con cariño</h3><p>Desde el primer clic hasta tu pedido, queremos que cada detalle se sienta parte de Mochis.</p></article></div></div></section>
+<section class="section"><div class="steps"><div class="steps-wrap"><article class="steps-card"><div class="label">Así de fácil</div><h2>Tu antojo en <span>3 pasos</span></h2><div class="steps-list"><div class="step"><div class="step-num">01</div><div><strong>Elegí tu favorito</strong><small>Entrá al menú y descubrí las opciones.</small></div></div><div class="step"><div class="step-num">02</div><div><strong>Armá tu pedido</strong><small>Agregá lo que querás y revisá tu carrito.</small></div></div><div class="step"><div class="step-num">03</div><div><strong>Disfrutá Mochis</strong><small>Confirmá tu pedido y preparate para el sabor.</small></div></div></div></article><article class="hours-card"><div class="label">Cuando el antojo llama</div><h2>Estamos <span>listos</span></h2><p>Revisá nuestro horario y visitanos en Somoto para disfrutar la experiencia Mochis.</p><div class="hours-row"><b>Viernes</b><span>5:30 PM – 10:30 PM</span></div><div class="hours-row"><b>Sábado</b><span>5:30 PM – 10:30 PM</span></div><div class="hours-row"><b>Domingo</b><span>5:30 PM – 10:30 PM</span></div></article></div></div></section>
+<section class="section"><div class="menu-section"><div class="section-head"><div class="label">Descubrí nuestro sabor</div><h2>Tu próximo antojo</h2><p>Todo nuestro menú está a un toque.</p></div><article class="feature"><div class="feature-icon"><i class="fa-solid fa-burger"></i></div><div class="feature-copy"><small>EXPERIENCIA MOCHIS</small><h3>Elegí. Ordená. <span>Disfrutá.</span></h3><p>Entrá al menú para ver hamburguesas, bebidas y opciones disponibles. Agregá tus favoritos y revisá tu pedido.</p></div><button class="feature-btn" onclick="location.href='menu.html'">VER MENÚ <i class="fa-solid fa-arrow-right"></i></button></article></div></section>
+<section class="final-cta"><div class="cta-box"><div class="label">El siguiente paso es fácil</div><h2>¿Ya se te <span>antojaron?</span></h2><p>Entrá al menú, elegí tus favoritos y armá tu pedido. El sabor brutal está a un toque.</p><a class="primary" href="menu.html">ABRIR MENÚ <i class="fa-solid fa-arrow-right"></i></a></div></section></main>
+<footer class="footer"><div class="social"><a href="https://www.facebook.com/TU_USUARIO" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/m0ch1s_26?stkn=MTZoOWY1Nm5iaHd5Mg==" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a><a href="https://www.tiktok.com/@TU_USUARIO" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a><a href="https://wa.me/50583606001" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a></div><div class="copy">© 2026 <b>Mochis Burguers</b> · Somoto, Nicaragua</div></footer>
+<nav class="bottom-nav" aria-label="Navegación principal"><button class="nav-item active" onclick="location.href='index.html'"><i class="fa-solid fa-house"></i><span>Inicio</span></button><button class="nav-item" onclick="location.href='menu.html'"><i class="fa-solid fa-burger"></i><span>Menú</span></button><button class="nav-item" onclick="location.href='pedidos.html'"><span class="icon"><i class="fa-solid fa-box"></i><b class="badge-count" id="cartCount">0</b></span><span>Pedidos</span></button><button class="nav-item" onclick="location.href='promos.html'"><i class="fa-solid fa-tags"></i><span>Promos</span></button></nav>
+<button class="install" id="installBtn">📲 Instalar App</button>
+<script>
+const CART_KEY="carrito";
+function updateCount(){const cart=JSON.parse(localStorage.getItem(CART_KEY)||"[]"),total=cart.reduce((s,p)=>s+(Number(p.qty)||1),0),badge=document.getElementById("cartCount");if(badge){badge.textContent=total;badge.style.display=total?"grid":"none"}}
+function actualizarHorario(){const status=document.getElementById("status"),text=document.getElementById("statusText");if(!status||!text)return;const parts=new Intl.DateTimeFormat("en-US",{timeZone:"America/Managua",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date()),d={};parts.forEach(x=>d[x.type]=x.value);const mins=Number(d.hour)*60+Number(d.minute),open=["Fri","Sat","Sun"].includes(d.weekday)&&mins>=1050&&mins<1350;status.classList.toggle("open",open);text.textContent=open?"ABIERTO":"CERRADO"}
+actualizarHorario();setInterval(actualizarHorario,60000);updateCount();
+let deferredPrompt;window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredPrompt=e;const b=document.getElementById("installBtn");if(b)b.style.display="block"});document.getElementById("installBtn").addEventListener("click",async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;document.getElementById("installBtn").style.display="none"});window.addEventListener("appinstalled",()=>{document.getElementById("installBtn").style.display="none"});if("serviceWorker"in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js").catch(()=>{}));
+</script></body></html>
